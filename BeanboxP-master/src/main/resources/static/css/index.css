@@ -10,47 +10,59 @@ body {
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
-  height:32vw;
-  background-image:url('https://image.istarbucks.co.kr/upload/common/img/main/2023/2023_spring2_promotion_bg_1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.carousel-inner {
-  max-width:100%;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  top: 8rem;
-  z-index: 10;
-  {height:100%;}
 }
 
-.carousel-item {
-  height:100%;
+.carousel-inner {
+   background-image:url('https://i.postimg.cc/yxrXZ7mD/wall.jpg');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   width: 100%;
+   aspect-ratio: 16/6;
+   margin-bottom: 4rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-text {
+    position:absolute;
+    top:45%;
+    left:3%;
+    width:25%;
 }
 
 /* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 45rem;
+}
+
+.set_01, .set_02, .set_03 {
+    position:absolute;
+}
 
 .set_01 {
-  position: relative;
-  left: 35%;
-  top: 15%;
-  width: 15%;
-  display: inline-block;
+    z-index:7;
+    top:18%;
+    left:50%;
+    width:25%;
 }
 
 .set_02 {
-  position: relative;
-  left: 40%;
-  top: 35%;
-  width: 30%;
-  display: inline-block;
+    z-index:8;
+    top:10%;
+    left:30%;
+    width:25%;
 }
+
+.set_03 {
+    z-index:8;
+    top:10%;
+    left:70%;
+    width:25%;
+}
+
 
 .pc-drink {
   display: block;
@@ -59,7 +71,6 @@ body {
 .m-drink {
   display: none;
 }
-
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -98,7 +109,7 @@ body {
 @media (min-width: 40em) {
   /* Bump up size of carousel content */
   .carousel-caption p {
-    margin-top: 2rem;
+    margin-bottom: 1.25rem;
     font-size: 1.25rem;
     line-height: 1.4;
   }
@@ -113,18 +124,44 @@ body {
     margin-top: 7rem;
   }
 }
-/* media queries mobile */
 @media screen and (max-width:960px) {
-    .carousel {width:auto; height:264vw; padding-top:9px; background-image:url('https://image.istarbucks.co.kr/upload/common/img/main/2023/2023_m_spring2_promotion_bg.jpg');
-      background-position:center top; box-sizing:border-box; margin-top:9px;};
-
-    .pc-drink {display:none;}
-
-    .carousel-item {bottom:auto; margin: 0;}
-
-    .set_01 {z-index: 9; top: 40%; left: 25%; width: 85%; max-width: 100%;}
-    .set_02 {z-index: 10; top: 40%; left: 15%; width: 75%; max-width: 100%;}
+    .carousel-inner {
+        background-image:url('https://i.postimg.cc/yxrXZ7mD/wall.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        aspect-ratio: 3/5;
+    }
+    .carousel-text {
+        position:absolute;
+        top:70%;
+        left:0%;
+        width:45%;
+    }
+    .set_01, .set_02, .set_03 {
+        position:absolute;
+    }
+   .set_01 {
+       top:-5%;
+       left:35%;
+       width:25%;
+   }
+   .set_02 {
+       top:25%;
+       left:0%;
+       width:25%;
+   }
+   .set_03 {
+       top:60%;
+       left:35%;
+       width:25%;
+   }
+    .pc-drink {
+      display: none;
+    }
+    .m-drink {
+      display: block;
+    }
 }
-@media screen and (max-width:320px) {
-    .carousel {height:347vw;}
-}
+
