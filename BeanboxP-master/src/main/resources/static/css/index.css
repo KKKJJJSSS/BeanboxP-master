@@ -7,7 +7,8 @@ body {
   color: #5a5a5a;
 }
 
-
+.navbar-brand {cursor : pointer;}
+.nav-item {cursor : pointer;}
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 /* Carousel base class */
@@ -124,6 +125,15 @@ body {
     margin-top: 7rem;
   }
 }
+@media screen and (max-width:1366px) {
+    .carousel-text {
+         position:absolute;
+         top:30%;
+         left:3%;
+         width:25%;
+    }
+}
+
 @media screen and (max-width:960px) {
     .carousel-inner {
         background-image:url('https://i.postimg.cc/yxrXZ7mD/wall.jpg');
@@ -131,29 +141,29 @@ body {
         background-position: center;
         background-repeat: no-repeat;
         width: 100%;
-        aspect-ratio: 3/5;
+        aspect-ratio: 3/6;
     }
     .carousel-text {
         position:absolute;
-        top:70%;
-        left:0%;
+        top:47%;
+        left:45%;
         width:45%;
     }
     .set_01, .set_02, .set_03 {
         position:absolute;
     }
    .set_01 {
-       top:-5%;
+       top:0%;
        left:35%;
        width:25%;
    }
    .set_02 {
-       top:25%;
-       left:0%;
+       top:30%;
+       left:-10%;
        width:25%;
    }
    .set_03 {
-       top:60%;
+       top:65%;
        left:35%;
        width:25%;
    }
