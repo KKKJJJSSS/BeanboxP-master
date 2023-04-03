@@ -17,51 +17,64 @@ body {
 }
 
 .carousel-inner {
-   background-image:url('https://i.postimg.cc/yxrXZ7mD/wall.jpg');
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   width: 100%;
-   aspect-ratio: 16/6;
-   margin-bottom: 4rem;
+  background-image:url('https://i.postimg.cc/yxrXZ7mD/wall.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  aspect-ratio: 16/6;
+  margin-bottom: 4rem;
 }
 
 /* Since positioning the image, we need to help out the caption */
-.carousel-text {
-    position:absolute;
-    top:45%;
-    left:3%;
-    width:25%;
-}
 
+.banner-text button {
+  position:absolute;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  top:55%;
+  left:18%;
+  width:10%;
+}
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 45rem;
+  height: 100%;
 }
 
-.set_01, .set_02, .set_03 {
-    position:absolute;
+.set_01, .set_02, .set_03, .set_04 {
+  position:absolute;
 }
 
 .set_01 {
-    z-index:7;
-    top:18%;
-    left:50%;
-    width:25%;
+  z-index:7;
+  top:18%;
+  left:50%;
+  width:25%;
 }
 
 .set_02 {
-    z-index:8;
-    top:10%;
-    left:30%;
-    width:25%;
+  z-index:8;
+  top:10%;
+  left:30%;
+  width:25%;
 }
 
 .set_03 {
-    z-index:8;
-    top:10%;
-    left:70%;
-    width:25%;
+  z-index:8;
+  top:10%;
+  left:70%;
+  width:25%;
+}
+
+.set_04 {
+  top:30%;
+  left:15%;
+  width:15%;
 }
 
 
@@ -126,52 +139,52 @@ body {
   }
 }
 @media screen and (max-width:1366px) {
-    .carousel-text {
-         position:absolute;
-         top:30%;
-         left:3%;
-         width:25%;
-    }
+  .banner-text button {
+    font-size: 13px;
+    left:17%;
+  }
 }
 
 @media screen and (max-width:960px) {
-    .carousel-inner {
-        background-image:url('https://i.postimg.cc/yxrXZ7mD/wall.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100%;
-        aspect-ratio: 3/6;
-    }
-    .carousel-text {
-        position:absolute;
-        top:47%;
-        left:45%;
-        width:45%;
-    }
-    .set_01, .set_02, .set_03 {
-        position:absolute;
-    }
-   .set_01 {
-       top:0%;
-       left:35%;
-       width:25%;
-   }
-   .set_02 {
-       top:30%;
-       left:-10%;
-       width:25%;
-   }
-   .set_03 {
-       top:65%;
-       left:35%;
-       width:25%;
-   }
-    .pc-drink {
-      display: none;
-    }
-    .m-drink {
-      display: block;
-    }
+  .carousel-inner {
+    aspect-ratio: 3/6;
+  }
+
+  .set_01 {
+    top: -1%;
+    left: 37%;
+    width: 70%;
+  }
+  .set_02 {
+    top: 30%;
+    left: -10%;
+    width: 70%;
+  }
+  .set_03 {
+    top: 60%;
+    left: 37%;
+    width: 70%;
+  }
+  .set_04 {
+    top: 35%;
+    left: 47%;
+    width: 45%;
+  }
+  .banner-text button {
+    top: 50%;
+    left: 55%;
+    width: 30%;
+    font-size: 20px;
+  }
+
+  .pc-drink {
+    display: none;
+  }
+  .m-drink {
+    display: block;
+  }
 }
 
+@media (min-width: 768px) and (max-width: 959px) {
+
+}
