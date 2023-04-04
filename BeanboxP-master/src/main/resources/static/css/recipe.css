@@ -1,0 +1,45 @@
+body {
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+}
+
+.navbar-brand {cursor : pointer;}
+.nav-item {cursor : pointer;}
+
+.text-context {
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.recipe {
+    width: 100%;
+}
+.recipe-text {
+    margin-block-start: 4em;
+    font-size: 17px;
+}
+.recipe-divider {
+    margin-top: 1rem;
+}
+.img-thumbnail {
+    margin-top: 4rem;
+    width: 80%;
+}
+
+.featurette-divider {
+    margin: 5rem 0;
+}
+
+@media screen and (max-width:960px) {
+    .btn-outline-dark {
+        font-size: 13px;
+    }
+}
+
+
