@@ -17,7 +17,7 @@ body {
 }
 
 .carousel-inner {
-  background-image:url('https://i.postimg.cc/yxrXZ7mD/wall.jpg');
+  background-image:url('../images/wall.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@ body {
 
 /* Since positioning the image, we need to help out the caption */
 
-.banner-text button {
+.btn-light{
   position:absolute;
   padding: 10px 20px;
   font-size: 18px;
@@ -37,6 +37,7 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-align: center;
   top:55%;
   left:18%;
   width:10%;
@@ -139,7 +140,7 @@ body {
   }
 }
 @media screen and (max-width:1366px) {
-  .banner-text button {
+  .btn-light {
     font-size: 13px;
     left:17%;
   }
@@ -170,7 +171,7 @@ body {
     left: 47%;
     width: 45%;
   }
-  .banner-text button {
+  .btn-light {
     top: 50%;
     left: 55%;
     width: 30%;
@@ -183,8 +184,4 @@ body {
   .m-drink {
     display: block;
   }
-}
-
-@media (min-width: 768px) and (max-width: 959px) {
-
 }
