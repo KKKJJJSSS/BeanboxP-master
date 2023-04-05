@@ -1,0 +1,25 @@
+<style>
+    .container-fluid {
+        min-height: 100vh;
+    }
+
+    #sidebarMenu {
+      position: fixed;
+      top: 6%;
+      left: 0;
+      width: 15%;
+      height: 100%;
+      background-color: #f8f9fa;
+      z-index: 1;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    main {
+        position: absolute;
+                top: 8%;
+                left: 15%;
+                right: 0;
+                bottom: 0;
+    }
+</style>
