@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Tab Example</title>
+
+    <style>
+
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
+          integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <a class="navbar-brand" onclick="location.href='index.html'">Beanbox</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="location.href='login.html'">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="location.href='mypage.html'">My Box</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" onclick="location.href='menu.html'">메뉴</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">아메리카노</a></li>
+                        <li><a class="dropdown-item" href="#">카페라떼</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="지역, 음식 등" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        </div>
+    </nav>
+</header>
+
+<!--상품 이미지 + 결제-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <!-- 왼쪽 내용 -->
+            <div style="margin-top: 80px; margin-bottom: 80px;">
+                <img src="https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/1731910231/B.jpg?87000000" class="img-fluid rounded-3 shadow-sm" alt="이미지를 불러올 수 없습니다.">
+            </div>
+        </div>
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-6">
+            <!-- 오른쪽 내용 -->
+            <div style="margin-top: 80px; margin-bottom: 80px;">
+                <h3 style="">아구스트 이탈리야 스페셜티 커피</h3>
+                <hr style="border-color: darkslategray;">
+                <h2 style="font-weight: bold; margin-top: 30px;">12,900 원</h2>
+                <hr style="border-color: darkslategray;">
+                <!--결제수단-->
+                <p style="font-size: 17px; font-weight: bold;">결제수단</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">신용카드</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">포인트</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">코인</label>
+                </div>
+                <hr style="border-color: darkslategray;">
+                <!--구매수량-->
+                <p>구매 수량</p>
+                <button style="width: 40px; height: 40px; border: none;" onclick="if(parseInt(document.getElementById('quantity').value) > 1) {document.getElementById('quantity').value = parseInt(document.getElementById('quantity').value) - 1; setTotal();}">-</button>
+                <input type="text" id="quantity" style="text-align: center; width: 50px; height: 40px;" min="1" max="99" value="1" onchange="if(this.value < 1 || this.value > 99){alert('유효하지 않은 값입니다.'); this.value = 1; setTotal();} else {setTotal();}">
+                <button style="width: 40px; height: 40px; border: none;" onclick="if(parseInt(document.getElementById('quantity').value) < 99) {document.getElementById('quantity').value = parseInt(document.getElementById('quantity').value) + 1; setTotal();}">+</button>
+                <!--                <button style="width: 40px; height: 40px; border: none;" onclick="if(parseInt(document.getElementById('quantity').value) > 1) {document.getElementById('quantity').value = parseInt(document.getElementById('quantity').value) - 1;}">-</button>-->
+                <!--                <input type="text" id="quantity" style="text-align: center; width: 50px; height: 40px;" min="1" max="99" value="1" onchange="if(this.value < 1 || this.value > 99){alert('유효하지 않은 값입니다.'); this.value = 1}">-->
+                <!--                <button style="width: 40px; height: 40px; border: none;" onclick="if(parseInt(document.getElementById('quantity').value) < 99) {document.getElementById('quantity').value = parseInt(document.getElementById('quantity').value) + 1;}">+</button>-->
+                <hr style="border-color: darkslategray;">
+                <p id="total" style="font-size: 17px; font-weight: bold;">총액: 12,900원</p>
+                <hr style="border-color: darkslategray;">
+                <!--구매, 장바구니 버튼-->
+                <button style="width: 100px; height: 50px; background-color: black; color: white; border: none; float: right; ">장바구니</button>
+                <button style="width: 100px; height: 50px; background-color: black; color: white; border: none; float: right; margin-right: 10px;">구매</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" style="max-width: 1600px;">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="info-tab" data-toggle="tab" href="#bean_info" role="tab"
+               aria-controls="bean_info" aria-selected="true" style="color: darkslategray; font-weight: bold;">상세 정보</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="trans-tab" data-toggle="tab" href="#bean_review" role="tab" aria-controls="profile"
+               aria-selected="false" style="color: darkslategray; font-weight: bold;">후기</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#bean_delivery" role="tab"
+               aria-controls="contact" aria-selected="false" style="color: darkslategray; font-weight: bold;">배송 안내</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="bean_info" role="tabpanel" aria-labelledby="bean_info-tab">
+            <h1>상세정보</h1>
+            <p>This is the coffee bean information tab.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor orci at risus euismod, nec tempor
+                velit pharetra. Nulla facilisi. Vestibulum sollicitudin, arcu eget pharetra molestie, urna ipsum
+                ultricies mauris, quis interdum felis tortor sit amet ipsum. Maecenas vitae mi nec sapien iaculis
+                elementum. Nulla facilisi. Sed vestibulum metus non nisl consectetur, a luctus nulla ultricies. Donec
+                laoreet sagittis augue, vitae varius velit tristique vel. Aenean nec elit vitae nisl fringilla blandit.
+                Morbi sodales laoreet sagittis. Sed vitae nunc nec odio venenatis suscipit non id turpis. Donec a elit
+                quis est dapibus lobortis. In hac habitasse platea dictumst.
+
+                Suspendisse ac sapien ut purus fringilla bibendum sit amet eget mauris. Nam hendrerit, nisi ac lacinia
+                sollicitudin, mauris leo suscipit mauris, sed gravida est libero nec tellus. Proin in metus eu tellus
+                ultricies auctor ac eu elit. Suspendisse vel malesuada libero. Integer condimentum sapien sed nulla
+                faucibus, in interdum risus efficitur. Sed aliquam fringilla urna. Nulla ac metus sed nisl bibendum
+                consequat. Proin placerat neque sit amet ipsum finibus, sed elementum turpis tincidunt. Aliquam
+                ullamcorper accumsan leo, in volutpat odio aliquam eget. Sed bibendum magna risus, nec fringilla diam
+                maximus ac. Sed quis odio eu est pretium gravida. Vivamus pretium felis et neque blandit rhoncus.
+                Vivamus nec augue non nisi finibus consectetur. Sed at purus mi.</p>
+        </div>
+        <div class="tab-pane fade" id="bean_review" role="tabpanel" aria-labelledby="profile-tab">
+            <h1>후기</h1>
+            <p>This is the review tab.</p>
+        </div>
+        <div class="tab-pane fade" id="bean_delivery" role="tabpanel" aria-labelledby="contact-tab">
+            <h1>배송 안내</h1>
+            <p>This is the delivery tab.</p>
+        </div>
+    </div>
+</div>
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Yeongjin Website 2022</p></div>
+</footer>
+
+
+<script>
+    function setTotal() {
+        var quantityInput = document.getElementById("quantity");
+        var quantity = parseInt(quantityInput.value);
+        var totalParagraph = document.getElementById("total");
+        var totalAmount = quantity * 12900;
+        totalParagraph.textContent = "총액: " + totalAmount.toLocaleString();
+    }
+</script>
+
+</body>
+</html>
