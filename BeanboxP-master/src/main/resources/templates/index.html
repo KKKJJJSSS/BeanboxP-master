@@ -9,26 +9,26 @@
     <title>Beanbox</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
           integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
-
-    <link href="static/css/index.css" type="text/css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="../static/assets/icon.ico" type="image/x-icon">
+    <link href="../static/css/index.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <header>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" onclick="location.href='index.html'">Beanbox</a>
+            <a class="navbar-brand" href=/>Beanbox</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    arNia-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" onclick="location.href='login.html'">Sign In</a>
+                        <a class="nav-link" href=/login>Sign In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" onclick="location.href='mypage.html'">My Box</a>
+                        <a class="nav-link" href=/mypage>My Box</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -36,12 +36,12 @@
                             Menu
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" onclick="location.href='menu.html'">메뉴</a></li>
+                            <li><a class="dropdown-item" href=/menu>메뉴</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">아메리카노</a></li>
-                            <li><a class="dropdown-item" href="#">카페라떼</a></li>
+                            <li><a class="dropdown-item" href=/recipe>아메리카노</a></li>
+                            <li><a class="dropdown-item" href=/recipe>카페라떼</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -58,47 +58,31 @@
     <div class="carousel-inner" >
         <div class="carousel-item active">
             <div class="set_01">
-                <img src="https://i.postimg.cc/yxFQcP4S/cafe-latte.png" width="100%" height="auto"
+                <img src="../static/images/cafe_latte.png" width="100%" height="auto"
                      class="pc-drink"/>
-                <img src="https://i.postimg.cc/63hfS7cY/m-cafe-latte.png" width="100%" height="auto"
+                <img src="../static/images/m_cafe_latte.png" width="100%" height="auto"
                      class="m-drink"/>
             </div>
             <div class="set_02">
-                <img src="https://i.postimg.cc/MKw9yr0p/americano.png" width="100%" height="auto"
+                <img src="../static/images/americano.png" width="100%" height="auto"
                      class="pc-drink"/>
-                <img src="https://i.postimg.cc/zfKjC2gm/m-americano.png" width="100%" height="auto"
+                <img src="../static/images/m_americano.png" width="100%" height="auto"
                      class="m-drink"/>
             </div>
             <div class="set_03">
-                <img src="https://i.postimg.cc/YCK8pD0H/Vienna-coffee.png" width="100%" height="auto"
+                <img src="../static/images/Vienna%20coffee.png" width="100%" height="auto"
                      class="pc-drink"/>
-                <img src="https://i.postimg.cc/9FktvHP5/m-Vienna-coffee.png" width="100%" height="auto"
+                <img src="../static/images/m_Vienna%20coffee.png" width="100%" height="auto"
                      class="m-drink"/>
             </div>
             <div class="set_04">
-                <img src="https://i.postimg.cc/XY7KG7VC/text.png" width="100%" height="auto"
+                <img src="../static/images/banner_text.png" width="100%" height="auto"
                      class="pc-drink"/>
-                <img src="https://i.postimg.cc/nL22zR9n/m-text.png" width="100%" height="auto"
+                <img src="../static/images/m_banner_text.png" width="100%" height="auto"
                      class="m-drink"/>
             </div>
             <div class="banner-text">
-                <button  onclick="location.href='menu.html'">자세히 보기</button>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <div class="set_01">
-                <img src="https://i.postimg.cc/yxFQcP4S/cafe-latte.png"
-                     class="pc-drink"/>
-                <img src="https://i.postimg.cc/XJP4bqGv/m-cafe-latte.png"
-                     class="m-drink"/>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <div class="set_01">
-                <img src="https://i.postimg.cc/yxFQcP4S/cafe-latte.png"
-                     class="pc-drink" />
-                <img src="https://i.postimg.cc/XJP4bqGv/m-cafe-latte.png"
-                     class="m-drink"/>
+                <a href=/recipe class="btn btn-light">자세히 보기</a>
             </div>
         </div>
     </div>
@@ -116,21 +100,21 @@
                      style="width:280px; height:280px;"/>
                 <h2 class="fw-normal">카페 Best 1</h2>
                 <p>대구 북구</p>
-                <p><a class="btn btn-secondary" onclick="location.href='gps.html'">자세히 보기 &raquo;</a></p>
+                <p><a class="btn btn-secondary" href=/gps>자세히 보기 &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
                 <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjAxMzBfMjk4%2FMDAxNjQzNTIzOTgyNDQ0.l0TJH_3pc3ZZfk-fSMznHZWrVk64y2rRiGTh0K-bKzQg.XI2zr9b0YDl6Tx5cAhMAJF5-aYUQ9eH7U_WCgsfm-Kog.JPEG.our0602%2FIMG_5765.JPG&type=sc960_832"
                      style="width:280px; height:280px;"/>
                 <h2 class="fw-normal">카페 Best 2</h2>
                 <p>대구 수성구</p>
-                <p><a class="btn btn-secondary" onclick="location.href='gps.html'">자세히 보기 &raquo;</a></p>
+                <p><a class="btn btn-secondary" href=/gps>자세히 보기 &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
                 <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTAyMDdfNTcg%2FMDAxNjEyNjkwNTk0MDg2.9XqNAd2jQUFvCqQ0d1murYvBPCwRrhhAaTknzatonqcg.ZeEV8XXTKfxQY6rZjFzIh2Cayf4-T4EpxTTICa3CkMQg.JPEG.kypyjy3%2FIMG_1034.JPG&type=sc960_832"
                      style="width:280px; height:280px;"/>
                 <h2 class="fw-normal">카페 Best 3</h2>
                 <p>대구 달서구</p>
-                <p><a class="btn btn-secondary" onclick="location.href='gps.html'">자세히 보기 &raquo;</a></p>
+                <p><a class="btn btn-secondary" href=/gps>자세히 보기 &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
@@ -143,9 +127,10 @@
             <div class="col-md-7">
                 <h2 class="featurette-heading fw-normal lh-1">인기 레시피! 도전 해보세요!</h2>
                 <p class="lead">간단한 아이스 아메리카노</p>
+                <p><a class="btn btn-secondary" href=/menu>자세히 보기 &raquo;</a></p>
             </div>
             <div class="col-md-5">
-                <img src="https://img.freepik.com/free-photo/iced-cola-tall-glass_1101-740.jpg?w=360&t=st=1678932692~exp=1678933292~hmac=644a313170f85539c85b8e9f466ba9654c0d364fdda1777cf1a698a90cf44c9d"
+                <img src="https://i.postimg.cc/MKw9yr0p/americano.png"
                      style="width:350px; height:350px;"/>
 
             </div>
@@ -157,9 +142,10 @@
             <div class="col-md-7 order-md-2">
                 <h2 class="featurette-heading fw-normal lh-1">인기 원두! 구매 해보세요!</h2>
                 <p class="lead">아이스 아메리카노에 잘 어울리는 원두</p>
+                <p><a class="btn btn-secondary" href=/sidebutton>자세히 보기 &raquo;</a></p>
             </div>
             <div class="col-md-5 order-md-1">
-                <img src="https://img.pay.naver.net/o/proxy/phinf/shop1/20220825_286/16614257162295aPgb_PNG/62561604893813552_1609499178.png?type=m170"
+                <img src="https://cdn.imweb.me/thumbnail/20220709/a88a71f8ced9c.png"
                      style="width:350px; height:350px;"/>
             </div>
         </div>
@@ -170,6 +156,7 @@
             <div class="col-md-7">
                 <h2 class="featurette-heading fw-normal lh-1">인기 상품! 구매 해보세요!</h2>
                 <p class="lead">쉽게 사용하는 자동 커피머신</p>
+                <p><a class="btn btn-secondary" href=/sidebutton>자세히 보기 &raquo;</a></p>
             </div>
             <div class="col-md-5">
                 <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230131_200%2F16751419038641mG3G_JPEG%2F76277792564613860_357512671.jpg&type=sc960_832"
