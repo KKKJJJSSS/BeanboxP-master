@@ -14,16 +14,17 @@ body {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 .recipe {
     width: 100%;
 }
 .recipe-text {
-    margin-block-start: 4em;
+    margin-top: 4em !important;
     font-size: 17px;
 }
+
 .recipe-divider {
     margin-top: 1rem;
 }
@@ -35,9 +36,13 @@ body {
 .featurette-divider {
     margin: 5rem 0;
 }
+.recipe-divider2{
+    border: solid 1px black !important;
+    opacity: 1;
+}
 
 @media screen and (max-width:960px) {
-    .btn-outline-dark {
+    .btn-success {
         font-size: 13px;
     }
 }

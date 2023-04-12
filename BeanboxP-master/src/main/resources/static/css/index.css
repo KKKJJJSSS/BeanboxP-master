@@ -12,9 +12,6 @@ body {
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 /* Carousel base class */
-.carousel {
-  margin-bottom: 4rem;
-}
 
 .carousel-inner {
   background-image:url('../images/wall.png');
@@ -23,7 +20,6 @@ body {
   background-repeat: no-repeat;
   width: 100%;
   aspect-ratio: 16/6;
-  margin-bottom: 4rem;
 }
 
 /* Since positioning the image, we need to help out the caption */
@@ -87,39 +83,27 @@ body {
   display: none;
 }
 
-/* MARKETING CONTENT
--------------------------------------------------- */
+/* notice */
 
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-/* rtl:begin:ignore */
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
-}
-/* rtl:end:ignore */
-
-
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+.notice-inner {
+  background: #5c636a;
 }
 
-/* Thin out the marketing headings */
-/* rtl:begin:remove */
-.featurette-heading {
-  letter-spacing: -.05rem;
+.notice-inner1 {
+  float: left;
 }
 
-/* rtl:end:remove */
+.notice-text {
+  float: left;
+  color : white;
+  font-size: 20px;
+}
 
-/* RESPONSIVE CSS
--------------------------------------------------- */
+/* notice */
+
+.foot {
+  margin-top: 2rem;
+}
 
 @media (min-width: 40em) {
   /* Bump up size of carousel content */
