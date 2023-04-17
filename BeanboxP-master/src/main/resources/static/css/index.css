@@ -19,7 +19,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  aspect-ratio: 16/6;
+  aspect-ratio: 17/6;
 }
 
 /* Since positioning the image, we need to help out the caption */
@@ -87,16 +87,16 @@ body {
 
 .notice-inner {
   background: #5c636a;
-}
-
-.notice-inner1 {
-  float: left;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  height: 55px;
 }
 
 .notice-text {
-  float: left;
   color : white;
   font-size: 20px;
+  display: flex;
 }
 
 /* notice */
