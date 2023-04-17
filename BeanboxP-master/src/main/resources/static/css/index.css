@@ -2,13 +2,6 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 /**/
-body {
-  padding-bottom: 3rem;
-  color: #5a5a5a;
-}
-
-.navbar-brand {cursor : pointer;}
-.nav-item {cursor : pointer;}
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 /* Carousel base class */
@@ -24,13 +17,11 @@ body {
 
 /* Since positioning the image, we need to help out the caption */
 
-.btn-light{
+.btn-outline-light{
   position:absolute;
   padding: 10px 20px;
   font-size: 18px;
-  background-color: #fff;
-  color: #333;
-  border: none;
+  border-width: 2px!important;
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
@@ -84,7 +75,6 @@ body {
 }
 
 /* notice */
-
 .notice-inner {
   background: #5c636a;
   display: flex;
@@ -99,11 +89,7 @@ body {
   display: flex;
 }
 
-/* notice */
 
-.foot {
-  margin-top: 2rem;
-}
 
 @media (min-width: 40em) {
   /* Bump up size of carousel content */
@@ -124,7 +110,7 @@ body {
   }
 }
 @media screen and (max-width:1366px) {
-  .btn-light {
+  .btn-outline-light {
     font-size: 13px;
     left:17%;
   }
@@ -155,7 +141,7 @@ body {
     left: 47%;
     width: 45%;
   }
-  .btn-light {
+  .btn-outline-light {
     top: 50%;
     left: 55%;
     width: 30%;

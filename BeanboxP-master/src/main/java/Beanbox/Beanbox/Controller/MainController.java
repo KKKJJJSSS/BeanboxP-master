@@ -42,5 +42,7 @@ public class MainController {
         return "sidebutton";
     }
     @GetMapping("/checktest")
-    public  String checktest(){ return "checktest"; }
+    public String checktest(){ return "checktest"; }
+    @GetMapping("/notice")
+    public String notice(){ return "notice"; }
 }

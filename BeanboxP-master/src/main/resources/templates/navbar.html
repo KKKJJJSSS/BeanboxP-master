@@ -2,8 +2,18 @@
       integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
 
 <style>
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
   .navbar-brand {
     margin-left: 2rem;
+    cursor : pointer;
+  }
+  .nav-item {
+    cursor : pointer;
+  }
+  .d-flex {
+    width: 80%;
   }
 </style>
 <nav class="navbar navbar-expand-lg bg-light">
@@ -17,6 +27,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="nav-container">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="지역, 음식 등" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div class="navbar-content">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href=/login>Sign In</a>
@@ -45,10 +61,8 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="지역, 음식 등" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    </div>
+    </div>
     </div>
   </div>
 </nav>

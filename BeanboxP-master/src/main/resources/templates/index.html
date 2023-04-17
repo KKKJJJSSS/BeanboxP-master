@@ -45,30 +45,26 @@
                      class="m-drink"/>
             </div>
             <div class="banner-text">
-                <a href=/recipe class="btn btn-light">자세히 보기</a>
+                <a href=/recipe class="btn btn-outline-light">자세히 보기</a>
             </div>
         </div>
     </div>
     <div class="notice">
         <div class="notice-inner">
-            <div class="notice-inner1">
+            <div class="notice-context">
                 <img src="../static/images/speaker.png">
             </div>
             <div class="notice-text">
             <h5>시스템 개선 및 서비스 점검 안내</h5>
             </div>
-            <a class="notice-button" href=/index>
+            <a class="notice-button" href=/notice>
                 <img src="../static/images/btn_notice_plus.png" width="70%" height="auto">
             </a>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="container">
-        <div class="foot">
-        <p class="float-end"><a href="#">Back to top</a></p>
-        <p>&copy; Beanbox Company, Inc.</p>
-        </div>
+    <footer class="foot">
+        <div th:replace="./footer.html"></div>
     </footer>
 </main>
 
