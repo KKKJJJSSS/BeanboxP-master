@@ -22,61 +22,6 @@
     <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#712cf9">
 
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-    </style>
-
-
 </head>
 <body>
 
@@ -85,38 +30,21 @@
 </header>
 
 <main>
-    <head>
-        <title>Google Maps Embed API Example</title>
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-        <script>
-            function initMap() {
-             var myLatLng = {lat: 37.566535, lng: 126.9779692};
+    <div id="map" style="width:1920px;height:700px;"></div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c54400c9168a34a840d8f6e456a6de2c"></script>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new kakao.maps.LatLng(33.450701, 126.570667),
+            level: 3
+        };
 
-              var map = new google.maps.Map(document.getElementById('map'), {
-              center: myLatLng,
-              zoom: 13
-              });
-
-             var marker = new google.maps.Marker({
-              map: map,
-              position: myLatLng,
-              title: 'Hello World!'
-             });
-         }
-         </script>
-    </head>
-
-    <body onload="initMap()">
-    <div id="map" style="height: 500px;"></div>
-    </body>
-    </head>
+        var map = new kakao.maps.Map(container, options);
+    </script>
 </main>
 
-<footer class="text-muted py-5">
-    <div class="container">
-        <p class="float-end"><a href="#">Back to top</a></p>
-        <p>&copy; Beanbox Company, Inc.</p>
-    </div>
+<footer class="foot">
+    <div th:replace="./footer.html"></div>
 </footer>
 
 
