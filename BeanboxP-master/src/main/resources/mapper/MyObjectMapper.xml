@@ -1,0 +1,7 @@
+<mapper namespace="mapper.MyObjectMapper">
+
+    <select id="getAll" resultType="mapper.MyObject">
+        SELECT * FROM menu;
+    </select>
+
+</mapper>

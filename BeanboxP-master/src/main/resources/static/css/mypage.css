@@ -1,0 +1,37 @@
+h2{
+  margin-top: 1rem;
+}
+
+.navbar-content{
+    margin-top: 3em;
+    margin-right: 2rem;
+    float:right;
+    font-weight: bold;
+}
+
+.mypage-img{
+    margin-top: 4rem;
+    background-color: #dde0e3;
+}
+
+.mypage-inner{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-dark{
+    margin-top: 1rem;
+}
+
+.top-wrap{
+    margin-top: 2rem;
+    background-color: #5c636a;
+}
+
+.menu-img{
+    background-color: white;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
