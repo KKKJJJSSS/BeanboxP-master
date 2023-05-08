@@ -17,48 +17,70 @@
     <div th:replace="./navbar.html"></div>
 </header>
 <main>
+    <div class="top-banner">
+        <p>My Box</p>
+    </div>
     <div class="container">
         <div class="row wrap">
-            <div class="col-8">
+            <div class="col-9">
                 <div class="row mypage-img">
                 <div class="col mypage-inner">
-                    <img src="../static/images/user/user.png">
+                    <img src="../static/images/user/user.png" class="img-thumbnail">
                 </div>
                 <div class="col mypage-inner">
                     <h2>user님 Welcome</h2>
                     <button type="button" class="btn btn-dark">개인정보 수정</button>
                     <button type="button" class="btn btn-dark">비밀번호 변경</button>
-                    <button type="button" class="btn btn-dark">개인정보 수정</button>
-                    <button type="button" class="btn btn-dark">비밀번호 변경</button>
                 </div>
+                </div>
+                <div class="row point">
+                    <h5>My 포인트</h5>
+                    <div class="col point-img">
+                        <img src="../static/images/mypage/card.png" width="70%" height="auto">
+                    </div>
+                    <div class="col point-context">
+                        <h5>0원</h5>
+                    </div>
                 </div>
                 <div class="row top-wrap">
+                    <h5>추천 레시피</h5>
+                    <div class="row">
                     <div class="col menu-wrap">
                         <div class="menu-img">
-                        <img src="../static/images/menu/americano.png" width="150px" height="150px">
+                        <img src="../static/images/menu/americano.png" width="100%" height="auto">
                         </div>
+                        <h6>아메리카노</h6>
                     </div>
                     <div class="col menu-wrap">
                         <div class="menu-img">
-                        <img src="../static/images/menu/Vienna_coffee.png" width="150px" height="150px">
+                        <img src="../static/images/menu/Vienna_coffee.png" width="100%" height="auto">
                         </div>
+                        <h6>비엔나커피</h6>
                     </div>
                     <div class="col menu-wrap">
                         <div class="menu-img">
-                        <img src="../static/images/menu/cafe_latte.png" width="150px" height="150px">
+                        <img src="../static/images/menu/cafe_latte.png" width="100%" height="auto">
                         </div>
+                        <h6>아이스 라떼</h6>
+                    </div>
+                    <div class="col menu-wrap">
+                        <div class="menu-img">
+                            <img src="../static/images/menu/cafe_latte.png" width="100%" height="auto">
+                        </div>
+                        <h6>아이스 라떼</h6>
                     </div>
                 </div>
+                </div>
             </div>
-            <div class="col navbar-content">
+            <div class="col-3 navbar-content" >
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <hr style="border: solid 1px;">
                     <li class="nav-item">
-                        <a class="nav-link" href=/login>My 메뉴</a>
+                        <a class="nav-link" href=/login><b>My 메뉴</b></a>
                     </li>
                     <hr style="border: solid 1px;">
                     <li class="nav-item">
-                        <a class="nav-link" href=/mypage>My 장바구니</a>
+                        <a class="nav-link" href=/mypage><b>My 장바구니</b></a>
                     </li>
                 </ul>
             </div>
