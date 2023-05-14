@@ -34,7 +34,7 @@
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
-
+/**/
 @media screen and (min-width: 641px) and (max-width: 1600px) {
     .map_wrap {
         height: 650px;
