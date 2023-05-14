@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
@@ -18,6 +21,11 @@ import java.util.List;
 
 @Controller
 public class TextExtractor {
+    private byte[] getBytesFromImage(BufferedImage image) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(image, "jpg", baos);
+        return baos.toByteArray();
+    }
 
     @GetMapping("/home")
     public String home() {
@@ -35,9 +43,12 @@ public class TextExtractor {
 
             // 저장한 파일을 이용하여 Image 생성
             ByteString imgBytes = ByteString.readFrom(Files.newInputStream(tempFile));
-            Image image = Image.newBuilder().setContent(imgBytes).build();
 
-            // API 호출을 위한 ImageAnnotatorClient 생성
+            // 이미지 사이즈 줄이기
+            BufferedImage img = ImageIO.read(tempFile.toFile());
+            Image resizedImage = Image.newBuilder().setContent(ByteString.copyFrom(getBytesFromImage(img))).build();
+
+// API 호출을 위한 ImageAnnotatorClient 생성
             try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
 
                 // API 요청 객체 생성
@@ -46,7 +57,7 @@ public class TextExtractor {
                 Feature feature = Feature.newBuilder().setType(Feature.Type.DOCUMENT_TEXT_DETECTION).build();
                 AnnotateImageRequest request = AnnotateImageRequest.newBuilder()
                         .addFeatures(feature)
-                        .setImage(image)
+                        .setImage(resizedImage) // 줄인 이미지를 전송
                         .setImageContext(imageContext)
                         .build();
                 requests.add(request);
