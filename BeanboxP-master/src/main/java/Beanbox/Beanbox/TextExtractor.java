@@ -18,7 +18,6 @@ import java.util.List;
 
 @Controller
 public class TextExtractor {
-
     @GetMapping("/home")
     public String home() {
         return "home";
