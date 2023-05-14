@@ -24,6 +24,7 @@ dependencies {
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.4'
 	implementation 'org.springframework.cloud:spring-cloud-gcp-starter-vision:2.0.3'
 	implementation 'com.google.cloud:google-cloud-vision:3.14.0'
+	
 }
 
 tasks.named('test') {
