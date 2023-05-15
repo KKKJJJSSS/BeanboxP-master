@@ -240,4 +240,5 @@ eval "set -- $(
 exec "$JAVACMD" "$@"
 
 # key.json 파일을 /app/ 디렉토리로 이동
+cd build/resources/main
 mv key.json /app/
