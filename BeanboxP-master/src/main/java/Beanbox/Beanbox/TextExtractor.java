@@ -1,5 +1,6 @@
 package Beanbox.Beanbox;
 
+import com.google.cloud.vision.v1.Image;
 import com.google.cloud.vision.v1.*;
 import com.google.protobuf.ByteString;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -36,23 +38,11 @@ public class TextExtractor {
                 os.write(file.getBytes());
             }
 
-            // 이미지 포맷이 JPEG 또는 PNG인 경우에 대해 처리
-            BufferedImage img = ImageIO.read(tempFile.toFile());
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            String format = "";
-            if (img != null) {
-                if (file.getContentType().equals("image/png")) {
-                    format = "png";
-                    ImageIO.write(img, format, baos);
-                    baos.flush();
-                } else if (file.getContentType().equals("image/jpeg")) {
-                    format = "jpg";
-                    ImageIO.write(img, format, baos);
-                    baos.flush();
-                }
-            }
-
             // 저장한 파일을 이용하여 Image 생성
+            BufferedImage img = ImageIO.read(tempFile.toFile());
+            BufferedImage resizedImg = resizeImage(img, 800, 600); // 이미지의 크기를 800x600으로 조정
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(resizedImg, "jpg", baos);
             ByteString imgBytes = ByteString.copyFrom(baos.toByteArray());
             Image image = Image.newBuilder().setContent(imgBytes).build();
 
@@ -99,5 +89,12 @@ public class TextExtractor {
             e.printStackTrace();
             return "error";
         }
+    }
+    private BufferedImage resizeImage(BufferedImage originalImage, int targetWidth, int targetHeight) {
+        BufferedImage resizedImage = new BufferedImage(targetWidth, targetHeight, BufferedImage.TYPE_INT_RGB);
+        Graphics2D graphics2D = resizedImage.createGraphics();
+        graphics2D.drawImage(originalImage, 0, 0, targetWidth, targetHeight, null);
+        graphics2D.dispose();
+        return resizedImage;
     }
 }

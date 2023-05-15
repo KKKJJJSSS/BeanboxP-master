@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu List</title>
+</head>
+<body>
+<h1>Menu List</h1>
+<ul>
+  <!-- Menu 객체 리스트를 순회하면서 각각의 이름을 li 태그에 담아 출력합니다. -->
+  <li th:each="menu : ${menuList}" th:text="${menu}"></li>
+</ul>
+</body>
+</html>
+
+
+
+
+
+
