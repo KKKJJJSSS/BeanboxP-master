@@ -26,6 +26,7 @@ public class TextExtractor {
 
     @PostMapping("/extract")
     public String extractText(@RequestParam("file") MultipartFile file, Model model) throws IOException {
+        ImageAnnotatorClient client = null;
         try {
             // MultipartFile을 BufferedImage로 변환
             BufferedImage image = ImageIO.read(file.getInputStream());
@@ -64,43 +65,53 @@ public class TextExtractor {
             com.google.cloud.vision.v1.Image visionImage = com.google.cloud.vision.v1.Image.newBuilder().setContent(imgBytes).build();
 
             // 구글 비전 API를 사용하여 이미지에서 텍스트 추출
-            try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
-                // API 요청 객체 생성
-                List<AnnotateImageRequest> requests = new ArrayList<>();
-                ImageContext imageContext = ImageContext.newBuilder().addLanguageHints("ko").build();
-                Feature feature = Feature.newBuilder().setType(Feature.Type.DOCUMENT_TEXT_DETECTION).build();
-                AnnotateImageRequest request = AnnotateImageRequest.newBuilder()
-                        .addFeatures(feature)
-                        .setImage(visionImage)
-                        .setImageContext(imageContext)
-                        .build();
-                requests.add(request);
+            client = ImageAnnotatorClient.create(); // ImageAnnotatorClient 인스턴스 생성
 
-                // API 호출 및 응답 받기
-                BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests);
-                List<AnnotateImageResponse> responses = response.getResponsesList();
+            // API 요청 객체 생성
+            List<AnnotateImageRequest> requests = new ArrayList<>();
+            ImageContext imageContext = ImageContext.newBuilder().addLanguageHints("ko").build();
+            Feature feature = Feature.newBuilder().setType(Feature.Type.DOCUMENT_TEXT_DETECTION).build();
+            AnnotateImageRequest request = AnnotateImageRequest.newBuilder()
+                    .addFeatures(feature)
+                    .setImage(visionImage)
+                    .setImageContext(imageContext)
+                    .build();
+            requests.add(request);
 
-                // 추출한 텍스트 가져오기
-                StringBuilder extractedText = new StringBuilder();
-                for (AnnotateImageResponse annotateResponse : responses) {
-                    if (annotateResponse.hasError()) {
-                        System.err.println("Error: " + annotateResponse.getError().getMessage());
-                        return "error"; // 오류 처리
-                    }
-                    for (EntityAnnotation annotation : annotateResponse.getTextAnnotationsList()) {
-                        extractedText.append(annotation.getDescription()).append(" ");
-                    }
-                    extractedText.append("\n");
+            // API 호출 및 응답 받기
+            BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests);
+            List<AnnotateImageResponse> responses = response.getResponsesList();
+
+            // 추출한 텍스트 가져오기
+            StringBuilder extractedText = new StringBuilder();
+            for (AnnotateImageResponse annotateResponse : responses) {
+                if (annotateResponse.hasError()) {
+                    System.err.println("Error: " + annotateResponse.getError().getMessage());
+                    return "error"; // 오류 처리
                 }
-
-                // 모델에 추출한 텍스트 추가
-                model.addAttribute("extractedText", extractedText.toString());
+                for (EntityAnnotation annotation : annotateResponse.getTextAnnotationsList()) {
+                    extractedText.append(annotation.getDescription()).append(" ");
+                }
+                extractedText.append("\n");
             }
+
+            // 추출한 텍스트에서 'COLOMBIA' 단어 확인
+            if (extractedText.toString().contains("COLOMBIA")) {
+                return "recipe"; // recipe.html
+            }
+
+            // 모델에 추출한 텍스트 추가
+            model.addAttribute("extractedText", extractedText.toString());
 
             return "result"; // 결과 페이지로 이동
         } catch (IOException e) {
             e.printStackTrace();
             return "error";
+        } finally {
+            // 리소스 해제
+            if (client != null) {
+                client.close();
+            }
         }
     }
 }
