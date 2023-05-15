@@ -21,11 +21,6 @@ import java.util.List;
 
 @Controller
 public class TextExtractor {
-    private byte[] getBytesFromImage(BufferedImage image) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "jpg", baos);
-        return baos.toByteArray();
-    }
 
     @GetMapping("/home")
     public String home() {
@@ -41,14 +36,27 @@ public class TextExtractor {
                 os.write(file.getBytes());
             }
 
-            // 저장한 파일을 이용하여 Image 생성
-            ByteString imgBytes = ByteString.readFrom(Files.newInputStream(tempFile));
-
-            // 이미지 사이즈 줄이기
+            // 이미지 포맷이 JPEG 또는 PNG인 경우에 대해 처리
             BufferedImage img = ImageIO.read(tempFile.toFile());
-            Image resizedImage = Image.newBuilder().setContent(ByteString.copyFrom(getBytesFromImage(img))).build();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            String format = "";
+            if (img != null) {
+                if (file.getContentType().equals("image/png")) {
+                    format = "png";
+                    ImageIO.write(img, format, baos);
+                    baos.flush();
+                } else if (file.getContentType().equals("image/jpeg")) {
+                    format = "jpg";
+                    ImageIO.write(img, format, baos);
+                    baos.flush();
+                }
+            }
 
-// API 호출을 위한 ImageAnnotatorClient 생성
+            // 저장한 파일을 이용하여 Image 생성
+            ByteString imgBytes = ByteString.copyFrom(baos.toByteArray());
+            Image image = Image.newBuilder().setContent(imgBytes).build();
+
+            // API 호출을 위한 ImageAnnotatorClient 생성
             try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
 
                 // API 요청 객체 생성
@@ -57,7 +65,7 @@ public class TextExtractor {
                 Feature feature = Feature.newBuilder().setType(Feature.Type.DOCUMENT_TEXT_DETECTION).build();
                 AnnotateImageRequest request = AnnotateImageRequest.newBuilder()
                         .addFeatures(feature)
-                        .setImage(resizedImage) // 줄인 이미지를 전송
+                        .setImage(image)
                         .setImageContext(imageContext)
                         .build();
                 requests.add(request);
@@ -89,7 +97,7 @@ public class TextExtractor {
             return "result"; // 결과 페이지로 이동
         } catch (IOException e) {
             e.printStackTrace();
-            return "error"; // 오류 처리
+            return "error";
         }
     }
 }
