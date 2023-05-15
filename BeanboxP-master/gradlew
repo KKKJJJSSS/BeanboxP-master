@@ -103,6 +103,8 @@ die () {
 } >&2
 
 # OS specific support (must be 'true' or 'false').
+# Move key.json to /app/ directory
+mv key.json /app/
 cygwin=false
 msys=false
 darwin=false
@@ -238,7 +240,3 @@ eval "set -- $(
     )" '"$@"'
 
 exec "$JAVACMD" "$@"
-
-# key.json 파일을 /app/ 디렉토리로 이동
-cd build/resources/main
-mv key.json /app/
