@@ -1,20 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Menu List</title>
+  <title>Beanbox</title>
+    <link href="../static/css/test.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<h1>Menu List</h1>
-<ul>
-  <!-- Menu 객체 리스트를 순회하면서 각각의 이름을 li 태그에 담아 출력합니다. -->
-  <li th:each="menu : ${menuList}" th:text="${menu}"></li>
-</ul>
+<header>
+  <div th:replace="./navbar.html"></div>
+</header>
+<div th:each="recipe : ${filteredRecipes}">
+    <div th:if="${extractedText.contains(recipe.recipe_bean)}">
+    <h2 th:text="${recipe.coffee_name}"></h2>
+        <h2 th:text="${recipe.recipe_bean}"></h2>
+    <div>
+        <span>Recipe Rating:</span>
+        <span th:each="i : ${#numbers.sequence(1, 5)}">
+        <span th:if="${recipe.recipe_rating != null && recipe.recipe_rating >= i}" class="filled-circle">●</span>
+        <span th:unless="${recipe.recipe_rating != null && recipe.recipe_rating >= i}" class="empty-circle">○</span>
+      </span>
+    </div>
+    <div>
+        <span>Sweetness:</span>
+        <span th:each="i : ${#numbers.sequence(1, 5)}">
+        <span th:if="${recipe.sweetness != null && recipe.sweetness >= i}" class="filled-circle">●</span>
+        <span th:unless="${recipe.sweetness != null && recipe.sweetness >= i}" class="empty-circle">○</span>
+      </span>
+    </div>
+    <div>
+        <span>Acidity:</span>
+        <span th:each="i : ${#numbers.sequence(1, 5)}">
+        <span th:if="${recipe.acidity != null && recipe.acidity >= i}" class="filled-circle">●</span>
+        <span th:unless="${recipe.acidity != null && recipe.acidity >= i}" class="empty-circle">○</span>
+      </span>
+    </div>
+    <div>
+        <span>Bitter:</span>
+        <span th:each="i : ${#numbers.sequence(1, 5)}">
+        <span th:if="${recipe.bitter != null && recipe.bitter >= i}" class="filled-circle">●</span>
+        <span th:unless="${recipe.bitter != null && recipe.bitter >= i}" class="empty-circle">○</span>
+      </span>
+    </div>
+    <div>
+        <span>Greasy:</span>
+        <span th:each="i : ${#numbers.sequence(1, 5)}">
+        <span th:if="${recipe.greasy != null && recipe.greasy >= i}" class="filled-circle">●</span>
+        <span th:unless="${recipe.greasy != null && recipe.greasy >= i}" class="empty-circle">○</span>
+      </span>
+    </div>
+    <br>
+</div>
+</div>
+<footer>
+  <div th:replace="./footer.html"></div>
+</footer>
 </body>
 </html>
-
-
-
 
 
 

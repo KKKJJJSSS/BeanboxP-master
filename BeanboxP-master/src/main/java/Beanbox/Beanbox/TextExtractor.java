@@ -1,7 +1,10 @@
 package Beanbox.Beanbox;
 
+import Beanbox.Beanbox.dto.BeanDto;
+import Beanbox.Beanbox.model.BeanMapper;
 import com.google.cloud.vision.v1.*;
 import com.google.protobuf.ByteString;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +21,8 @@ import java.util.List;
 
 @Controller
 public class TextExtractor {
+    @Autowired
+    private BeanMapper beanMapper;
 
     @GetMapping("/home")
     public String home() {
@@ -95,12 +100,22 @@ public class TextExtractor {
                 extractedText.append("\n");
             }
 
-            // 추출한 텍스트에서 'COLOMBIA' 단어 확인
-            if (extractedText.toString().contains("COLOMBIA")) {
-                return "recipe"; // recipe.html
+            String extractedTextWithoutWhitespace = extractedText.toString().replaceAll("\\s", "");
+
+            // 필터링된 결과를 담을 새로운 리스트 생성
+            List<BeanDto> filteredBeans = new ArrayList<>();
+
+            // beanList에서 조건을 확인하여 필터링
+            List<BeanDto> beanList = beanMapper.getBeanList();
+            for (BeanDto bean : beanList) {
+                if (extractedTextWithoutWhitespace.contains(bean.getBean_name().replaceAll("\\s", ""))) {
+                    filteredBeans.add(bean);
+                }
             }
 
-            // 모델에 추출한 텍스트 추가
+            // 모델에 필터링된 결과 추가
+            model.addAttribute("filteredBeans", filteredBeans);
+            // 모델에 추출한 텍스트, 공백 제거한 텍스트 추가
             model.addAttribute("extractedText", extractedText.toString());
 
             return "result"; // 결과 페이지로 이동

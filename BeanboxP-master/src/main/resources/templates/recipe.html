@@ -24,40 +24,48 @@
     <div class="col recipe-img">
     <img src="../static/images/menu/coldbrew.png" class="img-thumbnail" alt="americano" width="100%" height="auto">
     </div>
-    <div class="col recipe-text">
-      <h3 style="font-weight: bold;">아이스 아메리카노</h3>
-      <p>Ice Americano</p>
-      <hr class="recipe-divider2">
-      <p>원두 : 콜롬비아 라미나</p>
-      <hr class="recipe-divider">
-      <div class="product_info_content">
-        <ul>
-          <li class="kcal">
-              <p>1회 제공량 (kcal)</p>
-              <p></p>
-          </li>
-          <li class="protein">
-              <p>단백질 (g)</p>
-              <p></p>
-          </li>
-          <li class="sat_FAT">
-              <p>지방 (g)</p>
-              <p></p>
-          </li>
-          <li class="sodium">
-              <p>나트륨 (mg)</p>
-              <p></p>
-          </li>
-          <li class="sugars">
-              <p>당류 (g)</p>
-              <p></p>
-          </li>
-          <li class="caffeine last">
-              <p>카페인 (mg)</p>
-              <p></p>
-          </li>
-        </ul>
+    <div th:each="bean : ${filteredBeans}">
+      <div th:if="${extractedText.contains(bean.recipe_bean)}">
+        <h2 th:text="${bean.coffee_name}"></h2>
+        <h2 th:text="${bean.recipe_bean}"></h2>
+        <div>
+          <span>Recipe Rating:</span>
+          <span th:each="i : ${#numbers.sequence(1, 5)}">
+                <span th:if="${bean.recipe_rating != null && bean.recipe_rating >= i}" class="filled-circle">●</span>
+                <span th:unless="${bean.recipe_rating != null && bean.recipe_rating >= i}" class="empty-circle">○</span>
+            </span>
+        </div>
+        <div>
+          <span>Sweetness:</span>
+          <span th:each="i : ${#numbers.sequence(1, 5)}">
+                <span th:if="${bean.sweetness != null && bean.sweetness >= i}" class="filled-circle">●</span>
+                <span th:unless="${bean.sweetness != null && bean.sweetness >= i}" class="empty-circle">○</span>
+            </span>
+        </div>
+        <div>
+          <span>Acidity:</span>
+          <span th:each="i : ${#numbers.sequence(1, 5)}">
+                <span th:if="${bean.acidity != null && bean.acidity >= i}" class="filled-circle">●</span>
+                <span th:unless="${bean.acidity != null && bean.acidity >= i}" class="empty-circle">○</span>
+            </span>
+        </div>
+        <div>
+          <span>Bitter:</span>
+          <span th:each="i : ${#numbers.sequence(1, 5)}">
+                <span th:if="${bean.bitter != null && bean.bitter >= i}" class="filled-circle">●</span>
+                <span th:unless="${bean.bitter != null && bean.bitter >= i}" class="empty-circle">○</span>
+            </span>
+        </div>
+        <div>
+          <span>Greasy:</span>
+          <span th:each="i : ${#numbers.sequence(1, 5)}">
+                <span th:if="${bean.greasy != null && bean.greasy >= i}" class="filled-circle">●</span>
+                <span th:unless="${bean.greasy != null && bean.greasy >= i}" class="empty-circle">○</span>
+            </span>
+        </div>
+        <br>
       </div>
+    </div>
       <hr class="recipe-divider">
       <div class="d-grid gap-2">
         <button type="button" class="btn btn-dark">관심 레시피 등록</button>

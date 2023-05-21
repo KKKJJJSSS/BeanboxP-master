@@ -43,6 +43,9 @@ body {
     .btn-success {
         font-size: 13px;
     }
+    .recipe-text{
+        display:none;
+    }
 }
 
 
