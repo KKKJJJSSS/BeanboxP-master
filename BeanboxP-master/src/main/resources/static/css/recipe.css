@@ -25,7 +25,6 @@ body {
     margin-top: 4em !important;
     font-size: 17px;
 }
-
 .recipe-divider {
     margin-top: 1rem;
 }
@@ -43,8 +42,12 @@ body {
     .btn-success {
         font-size: 13px;
     }
-    .recipe-text{
-        display:none;
+    .img-thumbnail {
+        margin-top: 6rem;
+        width: 100%;
+    }
+    .recipe-text {
+        margin-top: 1em !important;
     }
 }
 

@@ -113,6 +113,7 @@ public class TextExtractor {
                 }
             }
 
+            model.addAttribute("resizedImage", resizedImage);
             // 모델에 필터링된 결과 추가
             model.addAttribute("filteredBeans", filteredBeans);
             // 모델에 추출한 텍스트, 공백 제거한 텍스트 추가
