@@ -3,15 +3,15 @@ h2 {
 }
 
 .upload-box {
-    width: 1100px;
-    height: 600px;
-    margin: 4rem auto;
+    margin-top: 2rem!important;
+    margin-bottom: 2rem!important;
     background: linear-gradient(#aaaa, white, #aaaa, #aaaa, #aaaa);
     border-radius: 10px 10px 10px 10px;
 }
 
 .upload-banner {
-    margin: 3rem;
+    margin-top: 2rem!important;
+    margin-left: 2rem;
 }
 
 .upload-banner-text {
@@ -19,17 +19,25 @@ h2 {
 }
 
 .upload-content {
-    margin: 3rem;
+    margin-top: 2rem!important;
+    margin-bottom: 2rem;
 }
 
 .upload-eximg {
-    margin-left: 1rem;
+    margin-left: 2rem;
     width: 400px;
     height: 450px;
     border-radius: 10px 10px 10px 10px;
 }
 
 .upload-extext {
-    margin-left: 1rem;
+    margin-left: 2rem;
     margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 960px) {
+    .upload-eximg {
+        width: 80%;
+        height: 80%;
+    }
 }
