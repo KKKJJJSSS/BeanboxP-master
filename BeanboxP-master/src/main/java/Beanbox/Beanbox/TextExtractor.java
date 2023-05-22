@@ -100,19 +100,14 @@ public class TextExtractor {
                 extractedText.append("\n");
             }
 
-            String extractedTextWithoutWhitespace = extractedText.toString().replaceAll("\\s", "");
-
             // 필터링된 결과를 담을 새로운 리스트 생성
             List<BeanDto> filteredBeans = new ArrayList<>();
 
             // beanList에서 조건을 확인하여 필터링
             List<BeanDto> beanList = beanMapper.getBeanList();
             for (BeanDto bean : beanList) {
-                if (extractedTextWithoutWhitespace.contains(bean.getBean_name().replaceAll("\\s", ""))) {
                     filteredBeans.add(bean);
-                }
             }
-
             // 모델에 필터링된 결과 추가
             model.addAttribute("filteredBeans", filteredBeans);
             // 모델에 추출한 텍스트, 공백 제거한 텍스트 추가
