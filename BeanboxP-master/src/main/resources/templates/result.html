@@ -28,6 +28,7 @@
             <div class="col recipe-text">
                 <div th:each="bean : ${filteredBeans}">
                     <div th:if="${extractedText.contains(bean.bean_name)}">
+                        <span th:text="${extractedText}"></span>
                         <div class="row">
                             <h class="bean-name" th:text="${bean.bean_name}">원두</h>
                         </div>
@@ -76,8 +77,8 @@
         </div>
         <hr class="featurette-divider">
         <div class="bean-list row">
-            <div class="card col-md-2" th:each="bean, i : ${filteredBeans}">
-                <div th:if="${extractedText.contains(bean.bean_name)}">
+            <div class="card col-md-2" th:each="bean, i : ${filteredBeans}"
+                th:if="${extractedText.contains(bean.bean_name)}">
                 <img class="card-img-top" th:src="@{'../static/images/' + ${bean.bean_name} + '/image1.png'}">
                 <div class="card-body">
                     <a class="btn btn-dark" th:href="@{/recipe(filename='image1', beanName=${bean.bean_name})}">레시피 보러가기</a>
@@ -90,7 +91,7 @@
                     <a class="btn btn-dark" th:href="@{/recipe(filename='image1', beanName=${bean.bean_name})}">레시피 보러가기</a>
                 </div>
             </div>
-            <div class="card col-md-2" th:each="bean, i : ${filteredBeans}"
+            <div class="card col-md-2" th:each="bean, i: ${filteredBeans}"
                  th:if="${extractedText.contains(bean.bean_name)}">
                 <img class="card-img-top" th:src="@{'../static/images/' + ${bean.bean_name} + '/image3.png'}">
                 <div class="card-body">
@@ -103,7 +104,6 @@
                 <div class="card-body">
                     <a class="btn btn-dark" th:href="@{/recipe(filename='image1', beanName=${bean.bean_name})}">레시피 보러가기</a>
                 </div>
-            </div>
             </div>
         </div>
     </div>
