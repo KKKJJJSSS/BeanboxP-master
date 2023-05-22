@@ -28,7 +28,6 @@
             <div class="col recipe-text">
                 <div th:each="bean : ${filteredBeans}">
                     <div th:if="${extractedText.contains(bean.bean_name)}">
-                        <span th:text="${extractedText}"></span>
                         <div class="row">
                             <h class="bean-name" th:text="${bean.bean_name}">원두</h>
                         </div>
