@@ -22,7 +22,7 @@ import java.util.List;
 @Controller
 public class TextExtractor {
     @Autowired
-    private BeanMapper beanMapper;
+    public BeanMapper beanMapper;
 
     @GetMapping("/uploadpage")
     public String home() {

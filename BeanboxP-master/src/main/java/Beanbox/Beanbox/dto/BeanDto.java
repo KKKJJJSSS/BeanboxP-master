@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class BeanDto {
-    private String bean_name;
-    private int aroma;
-    private int sweetness;
-    private int acidity;
-    private int bitter;
+    public String bean_name;
+    public int aroma;
+    public int sweetness;
+    public int acidity;
+    public int bitter;
 }

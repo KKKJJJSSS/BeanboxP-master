@@ -4,13 +4,13 @@ import lombok.Data;
 
 @Data
 public class RecipeDto {
-    private String coffee_name;
-    private int recipe_price;
-    private String recipe_description;
-    private String recipe_bean;
-    private int sweetness;
-    private int acidity;
-    private int bitter;
-    private int greasy;
-    private String img_number;
+    public String coffee_name;
+    public int recipe_price;
+    public String recipe_description;
+    public String recipe_bean;
+    public int sweetness;
+    public int acidity;
+    public int bitter;
+    public int greasy;
+    public String img_number;
 }
