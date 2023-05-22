@@ -21,8 +21,9 @@
 
     <div class="container marketing">
         <div class="row recipe">
-            <div class="col recipe-img">
-                <img alt="americano" class="img-thumbnail" height="auto" src="../static/images/menu/coldbrew.png"
+            <div class="col recipe-img" th:each="recipe : ${recipeList}"
+                th:if="${img_number.equals(recipe.img_number)}">
+                <img alt="americano" class="img-thumbnail" height="auto" th:src="@{'../static/images/' + ${recipe.recipe_bean} + '/' + ${filename} + '.png'}"
                      width="100%">
             </div>
             <div class="col recipe-text">

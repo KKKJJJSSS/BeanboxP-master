@@ -76,28 +76,28 @@
         </div>
         <hr class="featurette-divider">
         <div class="bean-list row">
-            <div class="card col-md-2" th:each="bean, i : ${filteredBeans}"
+            <div class="card col-md-2" th:each="bean : ${filteredBeans}"
                 th:if="${extractedText.contains(bean.bean_name)}">
                 <img class="card-img-top" th:src="@{'../static/images/' + ${bean.bean_name} + '/image1.png'}">
                 <div class="card-body">
                     <a class="btn btn-dark" th:href="@{/recipe(filename='image1', beanName=${bean.bean_name})}">레시피 보러가기</a>
                 </div>
             </div>
-            <div class="card col-md-2" th:each="bean, i : ${filteredBeans}"
+            <div class="card col-md-2" th:each="bean : ${filteredBeans}"
                  th:if="${extractedText.contains(bean.bean_name)}">
                 <img class="card-img-top" th:src="@{'../static/images/' + ${bean.bean_name} + '/image2.png'}">
                 <div class="card-body">
                     <a class="btn btn-dark" th:href="@{/recipe(filename='image2', beanName=${bean.bean_name})}">레시피 보러가기</a>
                 </div>
             </div>
-            <div class="card col-md-2" th:each="bean, i: ${filteredBeans}"
+            <div class="card col-md-2" th:each="bean : ${filteredBeans}"
                  th:if="${extractedText.contains(bean.bean_name)}">
                 <img class="card-img-top" th:src="@{'../static/images/' + ${bean.bean_name} + '/image3.png'}">
                 <div class="card-body">
                     <a class="btn btn-dark" th:href="@{/recipe(filename='image3', beanName=${bean.bean_name})}">레시피 보러가기</a>
                 </div>
             </div>
-            <div class="card col-md-2" th:each="bean, i : ${filteredBeans}"
+            <div class="card col-md-2" th:each="bean : ${filteredBeans}"
                  th:if="${extractedText.contains(bean.bean_name)}">
                 <img class="card-img-top" th:src="@{'../static/images/' + ${bean.bean_name} + '/image4.png'}">
                 <div class="card-body">
