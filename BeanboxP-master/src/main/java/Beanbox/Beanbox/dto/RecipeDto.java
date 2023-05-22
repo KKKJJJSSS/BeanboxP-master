@@ -8,9 +8,9 @@ public class RecipeDto {
     private int recipe_price;
     private String recipe_description;
     private String recipe_bean;
-    private int recipe_rating;
     private int sweetness;
     private int acidity;
     private int bitter;
     private int greasy;
+    private String img_number;
 }

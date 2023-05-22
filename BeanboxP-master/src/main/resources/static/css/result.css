@@ -1,22 +1,22 @@
-.beanName{
+.bean-name{
     font-size: 25px;
     font-weight: bold;
 }
 
-.beanList{
+.bean-list{
     text-align: center;
     justify-content: center;
+    margin-top: 2rem!important;
 }
 
 .card{
     margin: 2rem;
 }
 
-.card-title{
-    margin-top: 2rem;
-    margin-bottom: 2.5rem!important;
+.card-img-top{
+    background: linear-gradient(#E5E2DB, white);
+    margin-top: 1rem;
 }
-
 @media screen and (max-width: 960px) {
     .btn {
         font-size: 0!important; /* 기존 텍스트를 숨김 */

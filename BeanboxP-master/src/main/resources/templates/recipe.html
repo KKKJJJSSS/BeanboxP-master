@@ -1,93 +1,98 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.104.2">
-  <title>Beanbox</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
-        integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
-  <link rel="shortcut icon" href="../static/assets/favicon.ico" type="image/x-icon">
-  <link href="../static/css/recipe.css" type="text/css" rel="stylesheet"/>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="Mark Otto, Jacob Thornton, and Bootstrap contributors" name="author">
+    <meta content="Hugo 0.104.2" name="generator">
+    <title>Beanbox</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
+          integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" rel="stylesheet">
+    <link href="../static/assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="../static/css/recipe.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <header>
-  <div th:replace="./navbar.html"></div>
+    <div th:replace="./navbar.html"></div>
 </header>
 
 <main>
 
-  <div class="container marketing">
-  <div class="row recipe">
-    <div class="col recipe-img">
-    <img src="../static/images/menu/coldbrew.png" class="img-thumbnail" alt="americano" width="100%" height="auto">
+    <div class="container marketing">
+        <div class="row recipe">
+            <div class="col recipe-img">
+                <img alt="americano" class="img-thumbnail" height="auto" src="../static/images/menu/coldbrew.png"
+                     width="100%">
+            </div>
+            <div class="col recipe-text">
+                <div th:each="recipe : ${recipeList}">
+                    <div th:if="${img_number.equals(recipe.img_number)}">
+                        <div class="row">
+                            <h class="recipe-name" th:text="${recipe.coffee_name}"></h>
+                            <h class="bean-name" th:text="${recipe.recipe_bean}"></h>
+                        </div>
+                        <hr class="recipe-divider">
+                        <div class="row">
+                            <span>Sweetness</span>
+                            <span class="circle-row">
+          <span th:each="i : ${#numbers.sequence(1, 5)}">
+                <span class="filled-circle" th:if="${recipe.sweetness != null && recipe.sweetness >= i}">●</span>
+                <span class="empty-circle" th:unless="${recipe.sweetness != null && recipe.sweetness >= i}">○</span>
+            </span>
+            </span>
+                        </div>
+                        <div class="row">
+                            <span>Acidity</span>
+                            <span class="circle-row">
+          <span th:each="i : ${#numbers.sequence(1, 5)}">
+                <span class="filled-circle" th:if="${recipe.acidity != null && recipe.acidity >= i}">●</span>
+                <span class="empty-circle" th:unless="${recipe.acidity != null && recipe.acidity >= i}">○</span>
+            </span>
+          </span>
+                        </div>
+                        <div class="row">
+                            <span>Bitter</span>
+                            <span class="circle-row">
+          <span th:each="i : ${#numbers.sequence(1, 5)}">
+                <span class="filled-circle" th:if="${recipe.bitter != null && recipe.bitter >= i}">●</span>
+                <span class="empty-circle" th:unless="${recipe.bitter != null && recipe.bitter >= i}">○</span>
+            </span>
+          </span>
+                        </div>
+                        <div class="row">
+                            <span>Greasy</span>
+                            <span class="circle-row">
+          <span th:each="i : ${#numbers.sequence(1, 5)}">
+                <span class="filled-circle" th:if="${recipe.greasy != null && recipe.greasy >= i}">●</span>
+                <span class="empty-circle" th:unless="${recipe.greasy != null && recipe.greasy >= i}">○</span>
+            </span>
+          </span>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <hr class="recipe-divider">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-dark" type="button">관심 레시피 등록</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div th:each="bean : ${filteredBeans}">
-      <div th:if="${extractedText.contains(bean.recipe_bean)}">
-        <h2 th:text="${bean.coffee_name}"></h2>
-        <h2 th:text="${bean.recipe_bean}"></h2>
-        <div>
-          <span>Recipe Rating:</span>
-          <span th:each="i : ${#numbers.sequence(1, 5)}">
-                <span th:if="${bean.recipe_rating != null && bean.recipe_rating >= i}" class="filled-circle">●</span>
-                <span th:unless="${bean.recipe_rating != null && bean.recipe_rating >= i}" class="empty-circle">○</span>
-            </span>
-        </div>
-        <div>
-          <span>Sweetness:</span>
-          <span th:each="i : ${#numbers.sequence(1, 5)}">
-                <span th:if="${bean.sweetness != null && bean.sweetness >= i}" class="filled-circle">●</span>
-                <span th:unless="${bean.sweetness != null && bean.sweetness >= i}" class="empty-circle">○</span>
-            </span>
-        </div>
-        <div>
-          <span>Acidity:</span>
-          <span th:each="i : ${#numbers.sequence(1, 5)}">
-                <span th:if="${bean.acidity != null && bean.acidity >= i}" class="filled-circle">●</span>
-                <span th:unless="${bean.acidity != null && bean.acidity >= i}" class="empty-circle">○</span>
-            </span>
-        </div>
-        <div>
-          <span>Bitter:</span>
-          <span th:each="i : ${#numbers.sequence(1, 5)}">
-                <span th:if="${bean.bitter != null && bean.bitter >= i}" class="filled-circle">●</span>
-                <span th:unless="${bean.bitter != null && bean.bitter >= i}" class="empty-circle">○</span>
-            </span>
-        </div>
-        <div>
-          <span>Greasy:</span>
-          <span th:each="i : ${#numbers.sequence(1, 5)}">
-                <span th:if="${bean.greasy != null && bean.greasy >= i}" class="filled-circle">●</span>
-                <span th:unless="${bean.greasy != null && bean.greasy >= i}" class="empty-circle">○</span>
-            </span>
-        </div>
-        <br>
-      </div>
-    </div>
-      <hr class="recipe-divider">
-      <div class="d-grid gap-2">
-        <button type="button" class="btn btn-dark">관심 레시피 등록</button>
-      </div>
-    </div>
-  </div>
     <hr class="featurette-divider">
-  </div>
     <div class="text-context">
-      <p>콜롬비아 라미나<br><br>하리오 v60 ek43s 7.5<br><br>hot<br>원두량 19g 물 온도 92도 물 총량 300~340g<br>물 50g 을 부어서 30초간 뜸들이기를 합니다<br>물 70g-70g-50g을 나누어 부어줍니다<br>물을 원하는 농도에 맞춰 60~100g 정도 더해서 마무리합니다<br>총 추출시간 2:00 ~ 2:10 정도로 추천드립니다<br><br>ice<br>원두량 19g 물 온도 92도 물 총량 240g<br>물 50g 을 부어서 30초간 뜸들이기를 합니다<br>물 70g-70g-50g을 나누어 부어줍니다<br>총 추출시간 2:00 ~ 2:10 정도로 추천드립니다<br>추출하신 커피에 얼음을 100g 정도 넣어줍니다<br>얼음을 채운 잔에 옮겨 드시면 됩니다<br><br>에어로프레스 ek43s 10<br>hot<br>원두량 18.5g 물 온도 88도 물 총량 220~260g <br>역방향<br>물 60g을 부어준 후 스틱으로 5번 저어줍니다<br>0:30에 물 100g을 부어준 후 스틱으로 5번 저어줍니다<br>1:10초 부터 프레스를 시작해서 1:40정도까지 눌러 줍니다<br>물을 원하는 농도에 맞춰 60~100g 정도 더해서 마무리합니다<br><br>ice<br>원두량 18.5g 물 온도 88도 물 총량 190g <br>역방향<br>물 60g을 부어준 후 스틱으로 5번 저어줍니다<br>0:30에 물 100g을 부어준 후 스틱으로 5번 저어줍니다<br>1:10초 부터 프레스를 시작해서 1:40정도까지 눌러 줍니다<br>추출하신 커피에 얼음을 100g 정도 넣어줍니다<br>얼음을 채운 잔에 옮겨 드시면 됩니다<br></p>
+        <div th:each="recipe, i : ${recipeList}">
+            <div th:if="${img_number.equals(recipe.img_number)}">
+                <span th:utext="${recipe.recipe_description}"></span>
+            </div>
+        </div>
     </div>
-
-  <footer class="foot">
-    <div th:replace="./footer.html"></div>
-  </footer>
+    <footer class="foot">
+        <div th:replace="./footer.html"></div>
+    </footer>
 </main>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+<script crossorigin="anonymous"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-
-
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

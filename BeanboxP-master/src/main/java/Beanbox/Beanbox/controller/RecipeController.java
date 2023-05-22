@@ -2,11 +2,11 @@ package Beanbox.Beanbox.controller;
 
 import Beanbox.Beanbox.dto.RecipeDto;
 import Beanbox.Beanbox.model.RecipeMapper;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -18,10 +18,15 @@ public class RecipeController {
         this.recipeMapper = recipeMapper;
     }
 
-    @GetMapping("/test") // HTTP GET 요청을 처리하는 핸들러 매핑
-    public String getRecipeList(Model model) {
+    @GetMapping("/recipe")
+    public String getRecipeList(@RequestParam("filename") String filename, @RequestParam("beanName") String beanName, Model model) {
         List<RecipeDto> recipeList = recipeMapper.getRecipeList();
+        String img_number = beanName + filename;
+
         model.addAttribute("recipeList", recipeList);
-        return "test";
+        model.addAttribute("filename", filename);
+        model.addAttribute("beanName", beanName);
+        model.addAttribute("img_number", img_number);
+        return "recipe";
     }
 }

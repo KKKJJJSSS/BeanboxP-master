@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Image Text Extraction</title>
+</head>
+<body>
+<header>
+    <div th:replace="./navbar.html"></div>
+    <link href="../static/css/uploadpage.css" rel="stylesheet" type="text/css"/>
+</header>
+<main>
+    <div class="upload-container">
+        <div class="upload-box row">
+            <div class="upload-banner col">
+                <div class="upload-banner-text">
+                    <h2>원두 사진을 올려보세요!</h2>
+                    <h5>(원산지가 잘나오게 찍어주세요!)</h5>
+                </div>
+                <form action="/upload" enctype="multipart/form-data" method="POST">
+                    <input name="file" type="file"><br><br>
+                    <input type="submit" value="사진 업로드">
+                </form>
+            </div>
+            <div class="upload-content col">
+                <div class="upload-extext">
+                    <h2>예제 이미지</h2>
+                </div>
+                <img class="upload-eximg" src="../static/images/eximg.jpg">
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="foot">
+    <div th:replace="./footer.html"></div>
+</footer>
+</body>
+</html>

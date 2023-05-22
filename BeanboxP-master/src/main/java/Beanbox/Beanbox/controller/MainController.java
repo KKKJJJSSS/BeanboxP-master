@@ -9,10 +9,6 @@ public class MainController {
     public String index() {
         return "index";
     }
-    @GetMapping("/recipe")
-    public String recipe() {
-        return "recipe";
-    }
     @GetMapping("/cart")
     public String cart() {
         return "cart";
@@ -43,6 +39,4 @@ public class MainController {
     }
     @GetMapping("/checktest")
     public String checktest(){ return "checktest"; }
-    @GetMapping("/notice")
-    public String notice(){ return "notice"; }
 }
