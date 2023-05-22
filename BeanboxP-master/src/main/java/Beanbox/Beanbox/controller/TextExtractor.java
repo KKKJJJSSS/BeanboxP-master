@@ -108,10 +108,11 @@ public class TextExtractor {
             for (BeanDto bean : beanList) {
                 filteredBeans.add(bean);
             }
+
             // 모델에 필터링된 결과 추가
             model.addAttribute("filteredBeans", filteredBeans);
             // 모델에 추출한 텍스트, 공백 제거한 텍스트 추가
-            model.addAttribute("extractedText", extractedText.toString());
+            model.addAttribute("extractedText", extractedText.toString().replaceAll("\\s", ""));
 
             return "result"; // 결과 페이지로 이동
         } catch (IOException e) {
