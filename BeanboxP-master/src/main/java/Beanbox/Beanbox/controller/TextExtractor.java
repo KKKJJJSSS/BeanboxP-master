@@ -106,7 +106,7 @@ public class TextExtractor {
             // beanList에서 조건을 확인하여 필터링
             List<BeanDto> beanList = beanMapper.getBeanList();
             for (BeanDto bean : beanList) {
-                    filteredBeans.add(bean);
+                filteredBeans.add(bean);
             }
             // 모델에 필터링된 결과 추가
             model.addAttribute("filteredBeans", filteredBeans);
