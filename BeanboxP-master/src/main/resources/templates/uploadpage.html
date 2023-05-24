@@ -19,23 +19,30 @@
     <div th:replace="./navbar.html"></div>
 </header>
 <main>
-    <div class="container upload">
-        <div class="upload-box row">
+    <div class="top-banner">
+        <p>Bean</p>
+    </div>
+    <div class="container">
+        <div class="upload-wrap row">
             <div class="upload-banner col">
                 <div class="upload-banner-text">
                     <h2>원두 사진을 올려보세요!</h2>
                     <h5>(원산지가 잘나오게 찍어주세요!)</h5>
                 </div>
-                <form action="/upload" enctype="multipart/form-data" method="POST">
-                    <input name="file" type="file"><br><br>
-                    <input type="submit" value="사진 업로드">
-                </form>
-            </div>
-            <div class="upload-content col">
-                <div class="upload-extext">
-                    <h2>예제 이미지</h2>
+                <div id="root">
+                    <div class="contents">
+                            <form class="upload-box" action="/upload" method="POST" enctype="multipart/form-data">
+                            <div id="drop-file" class="drag-file">
+                                <img src="https://img.icons8.com/pastel-glyph/2x/image-file.png" alt="파일 아이콘" class="image" >
+                                <p class="message">Drag files to upload</p>
+                                <img src="" alt="미리보기 이미지" class="preview">
+                            </div>
+                            <label class="file-label" for="chooseFile">파일 선택</label>
+                            <input class="file" name="file" id="chooseFile" type="file" onchange="dropFile.handleFiles(this.files)" accept="image/png, image/jpeg, image/gif, image/jpg">
+                                <input class="submit" type="submit" value="파일 업로드">
+                            </form>
+                    </div>
                 </div>
-                <img class="upload-eximg" src="../static/images/eximg.jpg">
             </div>
         </div>
     </div>
@@ -46,5 +53,6 @@
 <script crossorigin="anonymous"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/upload.js"></script>
 </body>
 </html>

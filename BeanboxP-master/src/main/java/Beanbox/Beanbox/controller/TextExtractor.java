@@ -1,4 +1,4 @@
-package Beanbox.Beanbox;
+package Beanbox.Beanbox.controller;
 
 import Beanbox.Beanbox.dto.BeanDto;
 import Beanbox.Beanbox.model.BeanMapper;
@@ -92,12 +92,11 @@ public class TextExtractor {
             for (AnnotateImageResponse annotateResponse : responses) {
                 if (annotateResponse.hasError()) {
                     System.err.println("Error: " + annotateResponse.getError().getMessage());
-                    return "error"; // 오류 처리
+                    return "error"; // error handling
                 }
                 for (EntityAnnotation annotation : annotateResponse.getTextAnnotationsList()) {
-                    extractedText.append(annotation.getDescription()).append(" ");
+                    extractedText.append(annotation.getDescription().replaceAll("[\\s\\p{P}]", "").toUpperCase());
                 }
-                extractedText.append("\n");
             }
 
             // 필터링된 결과를 담을 새로운 리스트 생성
@@ -112,8 +111,10 @@ public class TextExtractor {
             // 모델에 필터링된 결과 추가
             model.addAttribute("filteredBeans", filteredBeans);
             // 모델에 추출한 텍스트, 공백 제거한 텍스트 추가
-            model.addAttribute("extractedText", extractedText.toString().replaceAll("[\\s\\p{P}]", ""));
+            model.addAttribute("extractedText", extractedText.toString());
 
+            System.out.println(filteredBeans);
+            System.out.println(extractedText);
 
             return "result"; // 결과 페이지로 이동
         } catch (IOException e) {

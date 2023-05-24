@@ -18,17 +18,17 @@
 </header>
 
 <main>
-
     <div class="container marketing">
         <div class="row recipe">
             <div class="col recipe-img" th:each="recipe : ${recipeList}"
                 th:if="${img_number.equals(recipe.img_number)}">
-                <img alt="americano" class="img-thumbnail" height="auto" th:src="@{'../static/images/' + ${recipe.recipe_bean} + '/' + ${filename} + '.png'}"
+                <img alt="americano" class="img-thumbnail" height="auto" th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/' + ${filename} + '.png'}"
                      width="100%">
             </div>
             <div class="col recipe-text">
                 <div th:each="recipe : ${recipeList}">
                     <div th:if="${img_number.equals(recipe.img_number)}">
+                        <hr class="featurette-divider">
                         <div class="row">
                             <h class="recipe-name" th:text="${recipe.coffee_name}"></h>
                             <h class="bean-name" th:text="${recipe.recipe_bean}"></h>

@@ -25,6 +25,13 @@
         content: 'Go';
         font-size: 12px; /* 원하는 폰트 크기로 설정 */
     }
+    .recipe {
+        text-align: center;
+        margin: 0 auto!important;
+    }
+    .recipe-img {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 766px) {
