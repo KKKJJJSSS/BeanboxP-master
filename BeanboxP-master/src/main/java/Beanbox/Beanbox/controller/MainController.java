@@ -39,4 +39,5 @@ public class MainController {
     }
     @GetMapping("/checktest")
     public String checktest(){ return "checktest"; }
+
 }
