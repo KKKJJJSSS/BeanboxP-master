@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   width: 100%;
   aspect-ratio: 17/6;
+  margin-top: 6rem;
 }
 
 /* Since positioning the image, we need to help out the caption */
