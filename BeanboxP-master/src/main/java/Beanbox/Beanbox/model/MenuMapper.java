@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 @Mapper
 public interface MenuMapper {
-    @Select("SELECT menu_name FROM menu")
+    @Select("SELECT * FROM menu")
     List<String> getMenuNames();
 }
 

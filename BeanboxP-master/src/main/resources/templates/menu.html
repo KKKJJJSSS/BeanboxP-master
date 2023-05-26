@@ -27,7 +27,7 @@
           <div class="card-body p-4">
             <div class="text-center">
               <!-- Product name-->
-              <h5 class="fw-bolder">아메리카노</h5>
+              <h5 class="fw-bolder" th:each="test : ${menuList}" th:text="${test}"> </h5>
               <!-- Product price-->
               1500원
               <div class="d-flex justify-content-center small text-warning mb-2">
@@ -55,7 +55,7 @@
           <div class="card-body p-4">
             <div class="text-center">
               <!-- Product name-->
-              <h5 class="fw-bolder">카페라떼</h5>
+              <h5 class="fw-bolder" th:each="test : ${menuList}" th:text="${test}"> </h5>
               <!-- Product price-->
               2000원
               <!-- Product reviews-->

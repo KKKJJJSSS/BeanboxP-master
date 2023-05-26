@@ -21,10 +21,6 @@ public class MainController {
     public String login() {
         return "login";
     }
-    @GetMapping("/menu")
-    public String menu() {
-        return "menu";
-    }
     @GetMapping("/mypage")
     public String mypage() {
         return "mypage";

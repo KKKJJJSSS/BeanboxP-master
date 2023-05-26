@@ -18,13 +18,13 @@ public class MenuController {
         this.menuMapper = menuMapper;
     }
 
-    @GetMapping("/test")
+    @GetMapping("/menu")
     public String getMenuList(Model model) {
         List<String> menuList = menuMapper.getMenuNames();
 
         model.addAttribute("menuList", menuList);
 
-        return "test";
+        return "menu";
     }
 
 
