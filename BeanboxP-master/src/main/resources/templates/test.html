@@ -3,11 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <title>Menu List</title>
-</head>
+
+  <style>
+    .alert {
+      display: none;
+      position: fixed;
+      margin: auto;
+      z-index: 100;
+      background-color: #ffffff;
+      padding: 20px 25px;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 18px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      max-width: 50%;
+    }
+
+    .alert button {
+      margin-left: 15px;
+      background-color: #0a58ca; /* 변경된 부분: 버튼 배경 색상 */
+      border: 1px solid #ffffff; /* 변경된 부분: 버튼 테두리 색상 */
+      color: #ffffff; /* 변경된 부분: 버튼 글자 색상 */
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .alert button:hover {
+      background-color: #45a049; /* 변경된 부분: 버튼 마우스 오버 색상 */
+    }
+    .overlay {
+      display: none;
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 99;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, 0.1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+  </style>
+
+  <script>
+    function addToCart() {
+      var alertElement = document.getElementById("alert");
+      var overlayElement = document.getElementById("overlay");
+
+      // 현재 보고 있는 스크롤 위치의 좌표를 가져옵니다.
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+
+      // 브라우저 창의 높이를 가져옵니다.
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
+
+      // 알림창의 너비와 높이를 가져옵니다.
+      var alertWidth = alertElement.clientWidth;
+      var alertHeight = alertElement.clientHeight;
+
+      // 알림창이 오른쪽에 나타나도록 위치를 설정합니다.
+      alertElement.style.top = (scrollTop + (windowHeight / 2) - (alertHeight / 2)) + "px";
+      alertElement.style.right = "20px";
+      alertElement.style.left = "";
+
+      alertElement.style.display = "block";
+      overlayElement.style.display = "block";
+      alert('장바구니에 추가');
+    }
+
+    function closeAlert() {
+      var alertElement = document.getElementById("alert");
+      var overlayElement = document.getElementById("overlay");
+
+      alertElement.style.display = "none";
+      overlayElement.style.display = "none";
+    }
+  </script>
+
+    </head>
 <body>
-<h1>Menu List</h1>
-<ul>
-  <li th:each="test : ${menuList}" th:text="${test}"></li>
-</ul>
+<h1>메뉴 목록</h1>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+  <div class="col" th:each="menu : ${menuList}">
+    <div class="card shadow-sm">
+      <a href="coffeebean_info.html">
+        <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+      </a>
+      <div class="card-body" style="height: 140px;">
+        <p class="card-text" style="font-size: 20px;" th:text="${menu.menu_name}"></p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group" style="margin-top: 30px;">
+            <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+            <a href="javascript:void(0)" onclick="addToCart()" class="btn btn-sm btn-outline-secondary">장바구니</a>
+          </div>
+          <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;" th:text="${menu.menu_price}"></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="overlay" class="overlay"></div>
+
+<div id="alert" class="alert">
+  상품이 장바구니에 추가되었습니다.
+  <button id="confirmButton" onclick="closeAlert();">확인</button>
+</div>
+
+
+
 </body>
 </html>
