@@ -32,38 +32,35 @@
 
 
   <script>
+    function updatePopupPosition() {
+      const alertBox = document.getElementById("alert");
+      const yOffset = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const alertBoxHeight = alertBox.offsetHeight;
+      const topPosition = yOffset + (windowHeight - alertBoxHeight) / 2;
+      alertBox.style.top = topPosition + 'px';
+    }
+
     function addToCart() {
-      var alertElement = document.getElementById("alert");
-      var overlayElement = document.getElementById("overlay");
+      const overlay = document.getElementById("overlay");
+      const alertBox = document.getElementById("alert");
 
-      // 현재 보고 있는 스크롤 위치의 좌표를 가져옵니다.
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-      var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+      overlay.style.display = "block";
+      alertBox.style.display = "block";
+      updatePopupPosition();
+      window.onscroll = updatePopupPosition;
 
-      // 브라우저 창의 높이를 가져옵니다.
-      var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
-
-      // 알림창의 너비와 높이를 가져옵니다.
-      var alertWidth = alertElement.clientWidth;
-      var alertHeight = alertElement.clientHeight;
-
-      // 알림창이 오른쪽에 나타나도록 위치를 설정합니다.
-      alertElement.style.top = (scrollTop + (windowHeight / 2) - (alertHeight / 2)) + "px";
-      alertElement.style.right = "20px";
-      alertElement.style.left = "";
-
-      alertElement.style.display = "block";
-      overlayElement.style.display = "block";
-      alert('장바구니 추가');
     }
-
+    //alert('장바구니 추가');
     function closeAlert() {
-      var alertElement = document.getElementById("alert");
-      var overlayElement = document.getElementById("overlay");
+      const overlay = document.getElementById("overlay");
+      const alertBox = document.getElementById("alert");
 
-      alertElement.style.display = "none";
-      overlayElement.style.display = "none";
+      overlay.style.display = "none";
+      alertBox.style.display = "none";
+      window.onscroll = null;
     }
+
   </script>
 
 
@@ -212,12 +209,14 @@
     </div>
   </div>
 
-  <div id="overlay" class="overlay"></div>
-
   <div id="alert" class="alert">
     상품이 장바구니에 추가되었습니다.
     <button id="confirmButton" onclick="closeAlert();">확인</button>
   </div>
+
+  <div id="overlay" class="overlay"></div>
+
+
 
 
 
