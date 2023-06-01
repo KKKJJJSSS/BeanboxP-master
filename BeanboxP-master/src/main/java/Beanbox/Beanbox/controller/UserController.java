@@ -71,14 +71,14 @@ public class UserController {
     public String mypage(Model model, HttpSession session)  {
         String username = (String) session.getAttribute("username");
 
-        List<UserDto> userList = userMapper.getUserList();
+        if (username == null) {
+            return "login";
+        } else {
+            List<UserDto> userList = userMapper.getUserList();
 
-        model.addAttribute("userList", userList);
-
-        if (username != null) {
+            model.addAttribute("userList", userList);
             model.addAttribute("username", username);
         }
-
         return "mypage";
     }
 
