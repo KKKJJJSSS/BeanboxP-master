@@ -25,10 +25,6 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/menu")
-    public String menu() {
-        return "menu";
-    }
 
     @GetMapping("/mypage")
     public String mypage() {
@@ -45,10 +41,6 @@ public class MainController {
         return "sidebutton";
     }
 
-    @GetMapping("/checktest")
-    public String checktest() {
-        return "checktest";
-    }
 
     @GetMapping("/coffeebean")
     public String coffee_info() {

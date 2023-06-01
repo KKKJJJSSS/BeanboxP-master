@@ -6,8 +6,8 @@ import lombok.Data;
 
     @Data
     public class CartDto {
-        public int cart_number;
-        public String user_id;
+        public int recipe_id;
+        public String coffee_name;
         public int product_number;
         public int item_quantity;
 

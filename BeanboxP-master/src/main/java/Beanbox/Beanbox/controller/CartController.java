@@ -25,8 +25,8 @@ public class CartController {
 
         // CartDto 객체 생성 및 데이터 설정
         CartDto cartDto = new CartDto();
-        cartDto.setCart_number(cartNumber);
-        cartDto.setUser_id(userId);
+       // cartDto.setCart_number(cartNumber);
+      //  cartDto.setUser_id(userId);
         cartDto.setProduct_number(productNumber);
         cartDto.setItem_quantity(itemQuantity);
         return "addtocart";

@@ -13,4 +13,5 @@ public class RecipeDto {
     public int bitter;
     public int greasy;
     public String img_number;
+    public int num;
 }
