@@ -94,43 +94,7 @@
 
 <!-- 네비게이션 바 -->
 <header>
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Beanbox</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">My Box</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-               aria-expanded="false">
-              Menu
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">커피</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">아메리카노</a></li>
-              <li><a class="dropdown-item" href="#">카페라떼</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="지역, 음식 등" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+  <div th:replace="./navbar.html"></div>
 </header>
 
 
@@ -213,52 +177,236 @@
 
   <!-- 이미지 -->
   <div class="container">
-    <div id="latteCoffee">
-      <div style="background-color: darkgray; padding: 10px; margin-top: 48px; margin-bottom: 20px">
-        <h5>라떼</h5>
-      </div>
-      <div class="album bg-white">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+  <div id="latteCoffee" style="display: none;">
+    <div class="album py-5 bg-white">
+        <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
+          <h5>라떼</h5>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div class="col">
-            <div class="card" style="">
-              <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">상품 제목</h5>
-                <p class="card-text">상품에 대한 간단한</p>
-                <br>
-                <p class="card-price">가격: $19.99</p>
-                <div class="d-flex justify-content-end">
-                  <a href="coffeebean_info.html" class="btn btn-primary" style="margin-right: 10px; background-color: #badce3; border: none; color: black">구매하기</a>
-                  <a href="cart.html" class="btn btn-primary" style="background-color: #badce3; border: none; color: black">장바구니</a>
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80"
+                     class="bd-placeholder-img card-img-top" width="100%" height="300" role="img"
+                     aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"/>
+              </a>
+              <div class="card-body"   style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아메리카노</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="recipe.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="#" id="/add-to-cart"  class="btn btn-sm btn-outline-secondary">장바구니 </a>
+
+
+
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80"
+                     class="bd-placeholder-img card-img-top" width="100%" height="300" role="img"
+                     aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"/>
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="/addItem?cart_number=1&user_id=johndoe&product_number=A1&item_quantity=1"
+                       class="btn btn-sm btn-outline-secondary">장바구니</a>
+
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+  </div>
   </div>
 
 
 
-  <div class="container">
-    <div id="cappuccinoCoffee">
-      <div style="background-color: darkgray; padding: 10px; margin-top: 48px; margin-bottom: 20px">
-        <h5>카푸치노</h5>
-      </div>
-      <div class="album bg-white">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+  <div id="cappuccinoCoffee" style="display: none;">
+    <div class="album py-5 bg-white">
+      <div class="container">
+        <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
+          <h5>카푸치노</h5>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div class="col">
-            <div class="card" style=" ">
-              <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">상품 제목</h5>
-                <p class="card-text">상품에 대한 간단한</p>
-                <br>
-                <p class="card-price">가격: $19.99</p>
-                <div class="d-flex justify-content-end">
-                  <a href="coffeebean_info.html" class="btn btn-primary" style="margin-right: 10px; background-color: #badce3; border: none; color: black">구매하기</a>
-                  <a href="cart.html" class="btn btn-primary" style="background-color: #badce3; border: none; color: black">장바구니</a>
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.htmll">
+                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
                 </div>
               </div>
             </div>
@@ -271,101 +419,25 @@
 
 <!-- 이미지 2 (커피2)-->
   <div class="container">
-    <div id="latteCoffee2">
-      <div style="background-color: darkgray; padding: 10px; margin-top: 48px; margin-bottom: 20px">
-        <h5>아메리카노</h5>
-      </div>
-      <div class="album bg-white">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <div id="latteCoffee2" style="display: none;">
+      <div class="album py-5 bg-white">
+        <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
+          <h5>아메리카노</h5>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div class="col">
-            <div class="card" style=" margin-bottom: 20px">
+            <div class="card shadow-sm">
               <a href="coffeebean_info.html">
-              <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">
+                <img src="data:image/jpeg;base64,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" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
               </a>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">상품 제목</h5>
-                <p class="card-text">상품에 대한 간단한</p>
-                <br>
-                <p class="card-price">가격: $19.99</p>
-                <div class="d-flex justify-content-end">
-                  <a href="coffeebean_info.html" class="btn btn-primary" style="margin-right: 10px; background-color: #badce3; border: none; color: black">구매하기</a>
-                  <a href="cart.html" class="btn btn-primary" style="background-color: #badce3; border: none; color: black">장바구니</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card" style=" margin-bottom: 20px">
-              <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">상품 제목</h5>
-                <p class="card-text">상품에 대한 간단한</p>
-                <br>
-                <p class="card-price">가격: $19.99</p>
-                <div class="d-flex justify-content-end">
-                  <a href="coffeebean_info.html" class="btn btn-primary" style="margin-right: 10px; background-color: #badce3; border: none; color: black">구매하기</a>
-                  <a href="cart.html" class="btn btn-primary" style="background-color: #badce3; border: none; color: black">장바구니</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card" style=" margin-bottom: 20px">
-              <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">상품 제목</h5>
-                <p class="card-text">상품에 대한 간단한</p>
-                <br>
-                <p class="card-price">가격: $19.99</p>
-                <div class="d-flex justify-content-end">
-                  <a href="coffeebean_info.html" class="btn btn-primary" style="margin-right: 10px; background-color: #badce3; border: none; color: black">구매하기</a>
-                  <a href="cart.html" class="btn btn-primary" style="background-color: #badce3; border: none; color: black">장바구니</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card" style=" margin-bottom: 20px">
-              <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">상품 제목</h5>
-                <p class="card-text">상품에 대한 간단한</p>
-                <br>
-                <p class="card-price">가격: $19.99</p>
-                <div class="d-flex justify-content-end">
-                  <a href="coffeebean_info.html" class="btn btn-primary" style="margin-right: 10px; background-color: #badce3; border: none; color: black">구매하기</a>
-                  <a href="cart.html" class="btn btn-primary" style="background-color: #badce3; border: none; color: black">장바구니</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card" style=" margin-bottom: 20px">
-              <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">상품 제목</h5>
-                <p class="card-text">상품에 대한 간단한</p>
-                <br>
-                <p class="card-price">가격: $19.99</p>
-                <div class="d-flex justify-content-end">
-                  <a href="coffeebean_info.html" class="btn btn-primary" style="margin-right: 10px; background-color: #badce3; border: none; color: black">구매하기</a>
-                  <a href="cart.html" class="btn btn-primary" style="background-color: #badce3; border: none; color: black">장바구니</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card" style=" margin-bottom: 20px">
-              <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">상품 제목</h5>
-                <p class="card-text">상품에 대한 간단한</p>
-                <br>
-                <p class="card-price">가격: $19.99</p>
-                <div class="d-flex justify-content-end">
-                  <a href="coffeebean_info.html" class="btn btn-primary" style="margin-right: 10px; background-color: #badce3; border: none; color: black">구매하기</a>
-                  <a href="cart.html" class="btn btn-primary" style="background-color: #badce3; border: none; color: black">장바구니</a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
                 </div>
               </div>
             </div>
@@ -376,52 +448,44 @@
   </div>
 
 
-  <!--  <div class="container">-->
-<!--    <div class="row">-->
-<!--      <div style="pamargin-bottom: 20px"> &lt;!&ndash; 1줄 &ndash;&gt;-->
-<!--        <div class="card" style="width: 18rem;">-->
-<!--          <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title">상품 제목</h5>-->
-<!--            <p class="card-text">상품에 대한 간단한 설명이 여기에 들어갑니다.</p>-->
-<!--            <p class="card-price">가격: $19.99</p>-->
-<!--            <a href="#" class="btn btn-primary">구매하기</a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div> &lt;!&ndash; 2줄 &ndash;&gt;-->
-<!--        <div class="card" style="width: 18rem;">-->
-<!--          <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title">상품 제목</h5>-->
-<!--            <p class="card-text">상품에 대한 간단한 설명이 여기에 들어갑니다.</p>-->
-<!--            <p class="card-price">가격: $19.99</p>-->
-<!--            <a href="#" class="btn btn-primary">구매하기</a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
 
-  <!-- 이미지 2 (커피2)-->
-  <div class="container">
-    <div id="cappuccinoCoffee2">
-      <div style="background-color: darkgray; padding: 10px; margin-top: 48px; margin-bottom: 20px">
-        <h5>모카</h5>
-      </div>
-      <div class="album bg-white">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+  <div id="cappuccinoCoffee2" style="display: none;">
+    <div class="album py-5 bg-white">
+      <div class="container">
+        <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
+          <h5>카푸치노</h5>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div class="col">
-            <div class="card" style="">
-              <img src="https://www.dailypop.kr/news/photo/202112/56761_110554_258.jpg" class="card-img-top" alt="상품 이미지">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">상품 제목</h5>
-                <p class="card-text">상품에 대한 간단한</p>
-                <br>
-                <p class="card-price">가격: $19.99</p>
-                <div class="d-flex justify-content-end">
-                  <a href="coffeebean_info.html" class="btn btn-primary" style="margin-right: 10px; background-color: #badce3; border: none; color: black">구매하기</a>
-                  <a href="cart.html" class="btn btn-primary" style="background-color: #badce3; border: none; color: black">장바구니</a>
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFRgVFRIYGRUYGBgaGBoaGBgaGBwYGBgZGhgZGhgcIS4lHB4rIRoYJjgmKy8xNTU1HCQ7QDs0Py40NTEBDAwMEA8QHxISHzErJSw0NTQ0NDQ0NjE0PzYxNDQ1NDQxNDQ0NDQ2PjE0NDQ0NDQ/NDQxMTYxNDQ2NDE0MTQ0NP/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAgQDBQYBB//EAD4QAAIBAgMEBggEBAYDAAAAAAECAAMRBBIhBTFBUQYiYXGBkRMyQmKhscHRFFLh8AcVcoIjM5Ki0vFDU8L/xAAZAQEBAQEBAQAAAAAAAAAAAAAAAQQDAgX/xAAlEQEBAQACAgEDBAMAAAAAAAAAAQIRIQMxEgRBkSIyUXETYfH/2gAMAwEAAhEDEQA/APs0REBIqbyLNJLAlERAREQERIkwJRIW7ZIGB7ERAREQEREBIqbyLNJLugSiIgIiICIkSYEokJIGB7ERATGzSZEiqwCrJxEBERAREQEgPrJzGxHPWB7JATCatv1+0x+lJ5mBanmYc5WzdwkWrqN7j4CBazjnGcc5TGKT848xMi1lO5gfKBZzDnIs0wvqOBnqG3ZAzgSUxCpJBgYE4iICIiAkFk54RAjJAQBPYCIiAiIgIiICIiAkWNp47WlOrX5QM71rSuahO6QRL6k6c/tNJtXbhB9HQALcT7K9/M9k863MzmvWMa1eI2eOxyUh1jdzuH6cppsXtateyMtu6+s1tLDMSXqMSx4n6SwjBG7xcjnbQmZb5Nbt46ap48599sgaq+r1GtpounymT8IDwPjcza4SipAYWIIuDLXoRH+PWvdS+TOfUaI4Vfyzz8OO0c7b5vGpiVHGtgJL47CeTlRSvWTVXNhwOt/OXMNt7XLUS3atyPEcJkfD2GspV8MDw1MfLefV/K8Y17n4dBRrK4zIwI7DMwacWjvRa6k2G+3HvHGdFszaa1Rbc/Lge1Z28fmmur1XHyeG5nM7jbK/j85MG8rqZIHlvmhxWIkEa/fJyBERAREQEREBERAREQEgzT1jKVd7wPK1W8x06d+4b55aVNt430NOy+u2ijmx+0lsk5q5l1eIobd2mzH0NI24Ow9kch701+GwyrZVGvH/AL5yGHQINTdjqeZJ5yy+JSijVKjqire7E6fqZg1q71235zMZ4iwaaqpZjYAEknQAD5TmcDtJcVjEShd6aB87gdTW1hm3cJTppiNqvc5qWBB6o0DVbc+z4d53fQcBgkooqIoCqLCdc5kc9a4/tp8fhcfRB/DFHQ3Nn0ZfdHAjy3Smn83N7tQQe8pJPYAl/MmdalezZTxFx9RMxvOvxn25c/8AJeO5Pw+d43au2U1OHpuBqcovfu1vJbK6dhqeepQZqqv6MU01LPYtuOosAec7ysdNZy/R7o6gxdfEEaCoSg4ZmRcx79/mZLLLOK9Z1nWbzJ0120OnWIT/ADdm1FW1xZr6EXFyBa/ZvExYDp5hqpyuWpt746v+ofWfQatNW3geM0G2uieGxCkPRUMfaUZWB53EmscmfJn1xwk7K6ixuDqO39Jr3vTbMNBfS1xY8xOMqpiNkVQGJqYVye9fs1rdhnciolWmroQVdQQd+h1mbebO3fN/Do9l470i2JGcDW3EfmH70mwUzidl1WWoLEabr6DXeD2GdhRrBgCOO8cQZq8Hl+ee/bL5vF8ddeliZUa/fMYnvzmhwZokVa8lIEREBERAREixgSnhkbd88Z4GOs/CVTMjmQge0xx5fPhOP2viTUxFt6p1QPeOrfQTrcTUyU2Y8AT4ATjNmXuGI6zZiTx6x1ty3zP9RrqZ/l3+nz3dfwsIQWN9853AgbTxDF9cLhmyrTO6o5vd3F9VFtBx85udt7UpUMisGeo5yolMXdiOAHDWwvNTsbC4nDM1RMMypVbO9IlGysbXKOpJPcQB3TljPx7aLeXd0aYUBVHwllE0uZRwWLVjrdTybQzNtHaKUKbVahsii5+gE65k45rPqXnhQ6RYn0SCodAjrc8ACQCT2ay5gNsU6i3DqCN4uJ85xu0cXtbNSooKeGuAzG5JHM2GvdcTq9mdC0WmEZnunVVswDlbcbac9Jedc85e/jmZ41e3QvWDeqQe43lPEbVw+EQNXqqmdjbNvY9gGp4ec02G2W2ExKKC7JUuuYm9mAJsTbiL/wCmb59hUqjNUqU87MmSzdZQgPqhToL7zxllt/t41nOfvzFPCdKsHVbKmJQsdwzWPkbTdIwM5DbP8PMJUUinT9E3Bk/4nSaDZOMxmzn9DVpvXo36hQE5Rb1tdw90/wDbmy9nxzqdV3XSDZqYik9Nxo6kd3IjtBsZ8u2Btl8A74XFK+QMcjBSeJ3c1Oh03Xn0HD9IPSNlGHrC+4sgVey1zr4TXdM9pnDUVc00NR3yICLqpIJzMd9tJ51JXTx/KdVlwOKR/wDERXZSOrmUpc/3WPwm/wABVLsmlvWB7RlOnnaaXDoyIuds7kDM9gATyVRuXs89bzabMa2Q31Dggf1HKb+BnDGpNyR18k5y6RG0mQTCm8juPn/1Mon0Hzy9jfhxmeYrT2meHL5cJBOeKb6yJN5IboEoiICRElPCIESZhqnhMwkWMCoQeU9CHkZYzT0NKjT9IWy4d/6SPM2nK4RrEjiANZ1XSdL0H/pv5a/ScthDqSBf1bfU90xfU/ujb9P+2qOyLPtKszf+KgiJxsahzP4kadxnaI9/3wnFdHjbH4tTv/wSL8RkHwvO5w63Nzvlndked9c1OphkI6wB/e+crW25g8QXwwD1VuVe1N2S44FwLcDOn2m9kexscjWPI20nA/wjrr6KommYVCe3VUGb4W8DOtk54ecT9N1fs6fYdb0KLTfVFCqj2IbIAAgZN6kCw0003CdLQqKwuCCJFEDbwLT1cMo1GndPeZY561nX+mLGYfOUvwa/wI+szVHtoJ7mA3sNPOazH7cpU3RGOr7jwllk7eeLeo2C0y01XSPFLhcPVxGXMaaFgu653AX5XM21PFKwuGBHYZyf8S9oKmAqA2JfLTUE7yzC/boAx8J6vrkzP1SLXRip6SgmJclmqqH1I0J4Cw6qjgOHbNP/ABOoekwTm2qMjjss1jbwJm+6H4VkwVBHFjkUkcs2uXuF5p/4kdTA1uTAAd5YTjrNkldc2fPhHZlb0mGovfVqaE9+UXm0wRsrEn1VuL811+k1nR2jlwdEcqSeZUEzZ4dCcygatZbn3tPvMdnG+mu3p01+t3r9f1mUTCT1+5fmR9pmE+k+aleY2OoPDd57vjaTIvPGTTtlGUCSkUa4B5yUgREQEi26SkWFwRAwtVAlWpjkHtCarEFi7KxItw59t+UgjovsjxF/nHK8Nn/ME/NH8xTnK9KtTO9F8hJ4qhSy3UAHs+0coyY7LVpOAb3Vl8x+s5HBIbKSOGvwnQ4CplzjgRfy3/AnynObX2iVOSkqj3t/kNPnMv1ElsavBzJY0mIrGltSky6itSZGA9wkhvgov3z6HQqWXMZw+FRKDmu9GvWrMurKitZRqFADWUXO4a986To9tjDYtSVzXU5WRxlKtyK/vjGPfL15Z01HSvaVeorUsNTYh1YPUys2UEbkA3sfLtlLobjKOCyYepQq03c3D1MozG9tw1A/XlPo4CgdUATnulnR9MZSy3y1F1R7ag8v6Txnuyy8vGd5s+NnEdMrgDSUcfjQi6asdAPr4ThdkdJ8Thx+GxWFqvUQEI9NcwcAaXJNr+9NpSxRzU3rlUeq4UKT6gyM5QG+/qi543jXkvHRPDxe/wDrpsNQIS59Y6kyvUwNN266hj2i8z4jaVFFu9ZFHvOo+Zmno9JsHnbLiEdgGOVTcmwvpwM6/pk4ceNW8yVU29h0wxVyxVHZUzZirIzmy3I1Kk6cxv3bqOK2FRZ0fFmo4Q3TO7vSBv8Av1p7g9lPtR0xOJbLh1YmjQXdYHR3b2if3xnbVKClcpAItax5TxM895ddb+PEt5v3YqGJQqMrAjsII+E4H+JeN9M1DAU2Geo4d9fVQXtfxuf7ZT6e4H8JlrUnYI75WRXZGGhN0dTcD3TcS70J6JqrnGGq1T0i3Qv64VrauSTdtwk1u2ccLnxyX589OlWllQIBooA7gBLGyaRLKeBf5KzfQSzUw1yBfvmTALYZzoqB/MnU+AFvEzPjFu5y973PjV1Gu7nllXyF/wD6EsKZRwzdW53m7HvY3t4bvCWlM3sTOJ6d0gpkzCvKB6o8fnMsw4c6HvMzSBERAREQK2IpK3rKDbd2dxmpq7ORtxI+M3dSUTvgaw7IPB/MTw7Kf84t3zbJMgjg5aqlgnQhgNQecpdJtkqw9MiddNWtoWXju3kb/AidIDIVB5Ged4ms8V6zu51zHHYdhlubAaWJ45rCw87eM5fpBhauFrfjsNr/AO9B6rKPa+/dfnO1xmDNJ+qSEY9X3T+Xu5fpMNRAym4BB0sdbzFxcXits1NTmLXRzpBTxdIOja7mU+srcQRNwwnyrafR+thqhxOBYq+9qY9VhxCj6eVpvuj/AE/oVlyVj6KsujK+guN9ifkdZozuWduG/FfeXWYp1UFmG4fKa3aWwKWKpItdSQGzixIINiOHfNViukCV66UaLhlBDVGFioB9Rb8zqbclM7A7tJOrad5kv3czhOhWBQ3agGPNizedzNliOi2Ddcv4dBusyqFYEbiGGoM2DW4yAe24yyydWJdavfNe7DwYoUxRBJCXyn3SbiT2rtCnh6bVarhUQXJPyA4k8BPaWI1tfWfP9qYB8fjqgrOfwuHcIlME2Z8qs1x/dv8ACe/nM56TOLvVuv7rVolTa+I9NVumERiETi3O5HE2Fzw3DnPoSVQihE0Ciw7gN0qUKSIAiAKqiwAFgAOwT1aZqHKpsvtN2THrdt6auJ6+y7h6rMCxJIuAoHtMdyiW8W9glLjYM9t1uXifgDInLRUOwtlGWmnG5G/+o/AeMo4diSXbVmNz9AOwDSavDiyc1l8upbxGzR5ZptKFMy2jTu4LqGSJmBGknewPdCp4X1b8yfnaWJgwY6i9ov56/WZ5AiIgIiIEKk177zLrm8r1U4wIrJrMayYMqJwReeXi8CtUAN0cXU8901GN2e6XZNV/3dx+Ov7O8qoGFpUWqyHKRccvtOe8Z1O3TG7n009RAu/f577D9/szmOkHRijievbLU/MvHTQMPanevg0fUdVuWn7Epvs0g3y7uQuPh9Zmvj1m8tGfLK4ml0VqYXCl8ODUrJVSoQbdcKGDLYEEjW9uPbCfxGdOrXwlRGG+31VgCJ9CbRQBuAtb6981GIoLxQaHqne3Im53byO4xdcPWbNfujla38SAwtSwlV3O4MAB8CZhO0NrYnRKa4dDvJ9ax7Tc7uQE6pqijcAL75EViTpc92s8Xyx0mZPUc9hui+JosK6YtnrizMrE5H5qdfiZ0SouZnC/5hVyLWOYKFII53T4zPSp1CRZD46S3iUREJJGbiLj1joL8uES3Urzbxe1KlTZzZb6+d5uk9HhqeZzry3kngAOJlPEbVo4dctMBmtw3crk8e6cri8a9V8zm54DgByAnfx+GZ7vtn35Lrqem1rY1qz523eyvBR9+2bHDzS4JZusPNHLjYtoJYQzEgmVZUZkaYcbUJAUb2IUeJtJiYcGM9a/BBf+5rgfDMYG6AtoJKQA5SQMg9iIgJjJvJkTwCAAmJ14TPIOOPKBSInomR14zFKiV55eeXgmAJmJlB+kkZFoFWqhHW323WmNMa68j3/eXbTDUog8IVH+YofXp+Oh/WRerh23hv8AfMb4XkZgehPNzm+49TVnqrKthR7IPgxk/wCYUV9VL/2/8prHQDeZid1HCSYzPUhdavu1sK+22A6lMDvP0E0GNxJqNncgkdgtblJ1nJ4StVpljcxVnSm730WZcPQ4ywmHlunTkEsOlpsqEpostUjPSVsaczKJXoGW1Eryx13CqSZa2bQyprozdZu8jQeAtKlFPSPb2VsW7T7I+vh2zcEQIyQEAT2AiIgIiICIiBgcW7jMDpLpEwOlu6BWnoE9ZJ4JUeESJEnBEDHIkTJaRIgYysg9OZiJ5CqNTDys+Hm1KzG9OTheWmehMRozbvRld6UnCyteKcyqkzFICScHKCrMqCeqkzU0lVYw4mWtVJsq6s2g+57JWZ7WVRdjuAm2wOEyC7aud55DkJXllwlAIoUa8SeZO8yxEQhERAREQEREBERASJF5KIFWohHaPiJiIl+V6lC+o0Pw/SBXnsEkGzC374GSAlRC08ImQrIkQMZEgRMpWRZYGOIInkKFZBqcmJ7AqvQkPw8vWkHdRJwKwpWkFzMcqC5+XaTwEvU8Iz6t1V/3Hw4eM2NCiqiyi3Pme0njCsGCwQTU6sd5+gl2IhCIiAiIgIiICIkSYEokMskDA9iIgIiIEWUHQi4mBsN+U27N4lmeEwKbBhvW/dr+sgtYHfoeUuE3jICNQDLyKuYSJIllsMh9nyuPlIHBp2+f3jkV2tMTES3+AXm3n+k9GATiCf7m+8cig1UCeK7N6ik9w08902iYVF3IvfYX85kOvdINcmBdvWYKOQ1P2HxlujhVXcNeZ1P6eEzZfOSBgexEQEREBESLNaB4x85ITGBeZYCIiAkZKeEQIyQEAT2AiIgIiIHkgWvJkTwCAAkoiAiIgIiICRElPCIEbSQEAT2AiIgIiIEWa0gNZNheegQAE9iICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiB//2Q==" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img src="data:image/jpeg;base64,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" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
                 </div>
               </div>
             </div>
@@ -430,7 +494,6 @@
       </div>
     </div>
   </div>
-
 
 
 
@@ -571,7 +634,7 @@
 
 </main>
 
-<footer class="text-muted py-5" style="background-color: black; margin-top: 30px">
+<footer class="text-muted py-5" style="background-color: black">
   <div class="container text-center">
     <p class="float-end mb-1">
       <a href="#"></a>
