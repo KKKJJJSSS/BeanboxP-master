@@ -37,6 +37,4 @@ public class MainController {
     public String sidebutton() {
         return "sidebutton";
     }
-    @GetMapping("/checktest")
-    public String checktest(){ return "checktest"; }
 }
