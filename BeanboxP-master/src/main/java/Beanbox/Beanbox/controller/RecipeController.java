@@ -29,12 +29,4 @@ public class RecipeController {
         model.addAttribute("img_number", img_number);
         return "recipe";
     }
-    @GetMapping("/checktest")
-    public String getMenuList(Model model) {
-        List<RecipeDto> menuList = recipeMapper.getRecipeList();
-
-        model.addAttribute("menuList", menuList);
-
-        return "checktest";
-    }
 }

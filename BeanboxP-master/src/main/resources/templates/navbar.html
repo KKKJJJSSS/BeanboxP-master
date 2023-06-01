@@ -2,9 +2,6 @@
       integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
 
 <style>
-  .navbar {
-    background-color: #262626!important;
-  }
   .navbar-collapse {
     justify-content: center;
     margin-right: 5rem;
@@ -20,7 +17,7 @@
     margin-right: 2rem;
   }
   .nav-link {
-    color: white;
+    font-weight: bold;
   }
   @media screen and (max-width:960px) {
     .navbar-collapse {
@@ -31,7 +28,7 @@
     }
   }
 </style>
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/index">
       <img src="/static/images/icon.png" />
@@ -45,9 +42,8 @@
                 <span id="usernameLbl"></span>
               </a>
               <ul class="dropdown-menu logged-user-dropdown" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/mypage" style="cursor:pointer">마이 박스</a></li>
-                <li><a class="dropdown-item" href="/sidebutton" style="cursor:pointer">상점</a></li>
-                <li><a class="dropdown-item" href="/checktest" style="cursor:pointer">레시피</a></li>
+                <li><a class="dropdown-item" href="/auth/mypage" style="cursor:pointer">마이 박스</a></li>
+                <li><a class="dropdown-item" href="/auth/checktest" style="cursor:pointer">레시피</a></li>
                 <li><a class="dropdown-item" href="/gps" style="cursor:pointer">카페 찾기</a></li>
                 <hr>
                 <li><a class="dropdown-item" onclick="logout()" style="cursor:pointer">로그아웃</a></li>

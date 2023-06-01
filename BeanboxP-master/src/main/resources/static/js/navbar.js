@@ -19,6 +19,7 @@ function updateNavbar() {
         loggedSection.style.display = "block";
         usernameLbl.textContent = username + "님";
         loginSection.style.display = "none";
+
     } else {
         loggedSection.style.display = "none";
         loginSection.style.display = "block";

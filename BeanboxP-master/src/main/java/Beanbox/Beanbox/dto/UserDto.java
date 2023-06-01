@@ -8,4 +8,5 @@ public class UserDto {
     public String password;
     public String email;
     public String number;
+    public int point;
 }

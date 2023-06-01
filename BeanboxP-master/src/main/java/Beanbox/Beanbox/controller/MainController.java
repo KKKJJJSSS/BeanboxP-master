@@ -10,11 +10,6 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/cart")
-    public String cart() {
-        return "cart";
-    }
-
     @GetMapping("/gps")
     public String gps() {
         return "gps";
@@ -23,12 +18,6 @@ public class MainController {
     @GetMapping("/login")
     public String login() {
         return "login";
-    }
-
-
-    @GetMapping("/mypage")
-    public String mypage() {
-        return "mypage";
     }
 
     @GetMapping("/order")
@@ -40,7 +29,6 @@ public class MainController {
     public String sidebutton() {
         return "sidebutton";
     }
-
 
     @GetMapping("/coffeebean")
     public String coffee_info() {

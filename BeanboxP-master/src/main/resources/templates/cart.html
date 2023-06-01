@@ -1,57 +1,85 @@
 <!doctype html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들" name="author">
+    <meta content="Hugo 0.104.2" name="generator">
     <title>Beanbox</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="shortcut icon" href="../static/assets/icon.ico" type="image/x-icon">
+    <link href="../static/assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://getbootstrap.kr/docs/5.2/examples/album/" rel="canonical">
+    <!-- Favicons -->
+    <link href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link color="#712cf9" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" rel="mask-icon">
+    <link href="../static/css/checktest.css" rel="stylesheet" type="text/css"/>
+    <meta content="#712cf9" name="theme-color">
+
+
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
+          integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="../static/js/checktest.js"></script>
+
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+<!-- 네비게이션 바 -->
+<header>
+    <div th:replace="./navbar.html"></div>
+</header>
 
-<div th:replace="./navbar.html"></div>
 
-<div class="container-fluid">
-    <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="position-sticky pt-3 sidebar-sticky">
-                <ul class="nav flex-column">
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-0 mb-1 text-muted text-uppercase">
-                        <span>My Box</span>
-                        <a class="link-secondary" href="#" aria-label="Add a new report">
-                            <span data-feather="plus-circle" class="align-text-bottom"></span>
-                        </a>
-                    </h6>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="mypage.html">
-                            <span data-feather="home" class="align-text-bottom"></span>
-                            마이페이지
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.html">
-                            <span data-feather="file" class="align-text-bottom"></span>
-                            장바구니
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="order.html">
-                            <span data-feather="shopping-cart" class="align-text-bottom"></span>
-                            주문내역
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<main>
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">장바구니</h1>
-            </div>
-        </main>
+    <!-- 상단 대문구 -->
+
+    <div class="top-banner">
+        <p>Recipe</p>
     </div>
-</div>
+    <!-- 이미지 -->
+    <div class="album py-5 bg-white">
+        <div class="container">
+            <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
+                <h5 style="font-weight: bold;">My 장바구니</h5>
+            </div>
+            <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
+                <div class="col" th:each="cart : ${cartList}" th:if="${cart.username} == ${username}">
+                    <div class="card shadow-sm" th:each="recipe : ${recipeList}" th:if="${cart.coffee_name} == ${recipe.coffee_name}">
+                        <a href="coffeebean_info.html">
+                            <img aria-label="Placeholder: Thumbnail"
+                                 class="bd-placeholder-img card-img-top" focusable="false" height="300" preserveAspectRatio="xMidYMid slice"
+                                 role="img" th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/image' + ${recipe.num} +'.jpg'}"
+                                 width="100%"/>
+                        </a>
+                        <div class="card-body" style="height: 140px;">
+                            <p class="card-text" style="font-size: 20px;" th:text="${cart.coffee_name}"></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group" style="margin-top: 30px;">
+                                    <a class="btn btn-sm btn-outline-secondary" href="coffeebean_info.html">보기</a>
+                                    <a class="btn btn-sm btn-outline-secondary" href="coffeebean_info.html">삭제</a>
+                                </div>
+                                <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;"
+                                       th:text="${recipe.recipe_price}"></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<footer>
+    <div th:replace="./footer.html"></div>
+</footer>
+
+
+<script crossorigin="anonymous"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
