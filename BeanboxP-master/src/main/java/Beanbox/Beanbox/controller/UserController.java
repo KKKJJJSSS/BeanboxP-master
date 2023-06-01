@@ -59,7 +59,7 @@ public class UserController {
             response.put("result", "success");
             response.put("username", foundUser.getUsername());
 
-            httpSession.setAttribute("username", foundUser.getUsername());
+
         } else {
             response.put("result", "fail");
         }
