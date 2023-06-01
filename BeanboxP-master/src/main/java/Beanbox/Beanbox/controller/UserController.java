@@ -6,7 +6,6 @@ import Beanbox.Beanbox.dto.UserDto;
 import Beanbox.Beanbox.model.CartMapper;
 import Beanbox.Beanbox.model.RecipeMapper;
 import Beanbox.Beanbox.model.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,17 +19,20 @@ import java.util.Map;
 @RequestMapping("/auth")
 public class UserController {
 
-    @Autowired
-    private UserMapper userMapper;
+    private final UserMapper userMapper;
 
-    @Autowired
-    private HttpSession httpSession;
+    private final HttpSession httpSession;
 
-    @Autowired
-    private CartMapper cartMapper;
+    private final CartMapper cartMapper;
 
-    @Autowired
-    private RecipeMapper recipeMapper;
+    private final RecipeMapper recipeMapper;
+
+    public UserController(UserMapper userMapper, HttpSession httpSession, CartMapper cartMapper, RecipeMapper recipeMapper) {
+        this.userMapper = userMapper;
+        this.httpSession = httpSession;
+        this.cartMapper = cartMapper;
+        this.recipeMapper = recipeMapper;
+    }
 
     @PostMapping("/register")
     @ResponseBody
