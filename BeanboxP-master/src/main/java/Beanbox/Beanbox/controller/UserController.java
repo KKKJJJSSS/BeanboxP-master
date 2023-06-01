@@ -69,7 +69,7 @@ public class UserController {
 
     @GetMapping("/mypage")
     public String mypage(Model model, HttpSession session)  {
-        String username = (String) httpSession.getAttribute("username");
+        String username = (String) session.getAttribute("username");
 
         List<UserDto> userList = userMapper.getUserList();
 

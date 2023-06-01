@@ -1,262 +1,238 @@
 <!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="" name="description">
-    <meta content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들" name="author">
-    <meta content="Hugo 0.104.2" name="generator">
-    <title>Beanbox</title>
-    <link href="../static/assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link href="https://getbootstrap.kr/docs/5.2/examples/album/" rel="canonical">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
+  <meta name="generator" content="Hugo 0.104.2">
+  <title>Beanbox</title>
+  <link href="../static/assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link rel="canonical" href="https://getbootstrap.kr/docs/5.2/examples/album/">
 
-    <!-- Favicons -->
-    <link href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
-    <link color="#712cf9" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" rel="mask-icon">
-    <link href="../static/css/checktest.css" rel="stylesheet" type="text/css"/>
-    <meta content="#712cf9" name="theme-color">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+  <link href="../static/css/checktest.css" type="text/css" rel="stylesheet"/>
+  <meta name="theme-color" content="#712cf9">
 
 
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
-          integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="../static/js/checktest.js"></script>
+  <script src="../static/js/checktest.js"></script>
 
 </head>
 <body>
 <!-- 네비게이션 바 -->
 <header>
-    <div th:replace="./navbar.html"></div>
+  <div th:replace="./navbar.html"></div>
 </header>
+
 
 
 <main>
 
-    <!-- 상단 대문구 -->
+  <!-- 상단 대문구 -->
 
-    <div class="top-banner">
-        <p>Recipe</p>
+  <div class="top-banner">
+    <p>Recipe</p>
+  </div>
+
+
+
+
+<div class="container">
+  <div class="container" style="padding-top: 30px; padding-bottom: 30px; border: 1px solid lightgray; margin-top: 30px;">
+<!--  div 안에 넣어야 체크박스랑 위치 맞음 -->
+    <div style="margin-left: 14px;"><h5 style="font-weight: bold">분류</h5></div>
+    <div style="margin-left: 14px;"><hr style="border-color: darkslategray;"> <br> </div>
+    <div style="margin-left: 14px; padding-bottom: 15px">
+    <button onclick="toggleCheckboxes('A')" style="border: none; background-color: #F7F4E1">커피1</button>
+    <button onclick="toggleCheckboxes('B')" style="border: none; background-color: #F7F4E1">커피2</button>
+    </div>
+    <!-- 체크박스 -->
+    <div class="form-check-inline">
+      <input class="form-check-input" type="checkbox" value="" id="allSelect">
+      <label class="form-check-label" for="allSelect">전체 보기</label>
+    </div>
+    <div class="form-check-inline">
+      <input class="form-check-input" type="checkbox" value="" id="latteSelect">
+      <label class="form-check-label" for="latteSelect">라떼</label>
+    </div>
+    <div class="form-check-inline">
+      <input class="form-check-input" type="checkbox" value="" id="cappuccinoSelect">
+      <label class="form-check-label" for="cappuccinoSelect">카푸치노</label>
     </div>
 
+    <div class="form-check-inline" style="display: none">
+      <input class="form-check-input" type="checkbox" value="" id="allSelect2">
+      <label class="form-check-label" for="allSelect2">전체 보기</label>
+    </div>
+    <div class="form-check-inline" style="display: none">
+      <input class="form-check-input" type="checkbox" value="" id="latteSelect2">
+      <label class="form-check-label" for="latteSelect2">아메리카노</label>
+    </div>
+    <div class="form-check-inline" style="display: none">
+      <input class="form-check-input" type="checkbox" value="" id="cappuccinoSelect2">
+      <label class="form-check-label" for="cappuccinoSelect2">모카</label>
+    </div>
+  </div>
+</div>
 
-    <div class="container">
-        <div class="container"
-             style="padding-top: 30px; padding-bottom: 30px; border: 1px solid lightgray; margin-top: 30px;">
-            <!--  div 안에 넣어야 체크박스랑 위치 맞음 -->
-            <div style="margin-left: 14px;"><h5 style="font-weight: bold">분류</h5></div>
-            <div style="margin-left: 14px;">
-                <hr style="border-color: darkslategray;">
-                <br></div>
-            <div style="margin-left: 14px; padding-bottom: 15px">
-                <button onclick="toggleCheckboxes('A')" style="border: none; background-color: #F7F4E1">커피1</button>
-                <button onclick="toggleCheckboxes('B')" style="border: none; background-color: #F7F4E1">커피2</button>
-            </div>
-            <!-- 체크박스 -->
-            <div class="form-check-inline">
-                <input class="form-check-input" id="allSelect" type="checkbox" value="">
-                <label class="form-check-label" for="allSelect">전체 보기</label>
-            </div>
-            <div class="form-check-inline">
-                <input class="form-check-input" id="latteSelect" type="checkbox" value="">
-                <label class="form-check-label" for="latteSelect">라떼</label>
-            </div>
-            <div class="form-check-inline">
-                <input class="form-check-input" id="cappuccinoSelect" type="checkbox" value="">
-                <label class="form-check-label" for="cappuccinoSelect">카푸치노</label>
-            </div>
-
-            <div class="form-check-inline" style="display: none">
-                <input class="form-check-input" id="allSelect2" type="checkbox" value="">
-                <label class="form-check-label" for="allSelect2">전체 보기</label>
-            </div>
-            <div class="form-check-inline" style="display: none">
-                <input class="form-check-input" id="latteSelect2" type="checkbox" value="">
-                <label class="form-check-label" for="latteSelect2">아메리카노</label>
-            </div>
-            <div class="form-check-inline" style="display: none">
-                <input class="form-check-input" id="cappuccinoSelect2" type="checkbox" value="">
-                <label class="form-check-label" for="cappuccinoSelect2">모카</label>
-            </div>
+  <!-- 이미지 -->
+  <div id="latteCoffee" style="display: none;">
+    <div class="album py-5 bg-white">
+      <div class="container">
+        <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
+          <h5 style="font-weight: bold;">아메리카노</h5>
         </div>
+        <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
+          <div class="col" th:each="recipe : ${recipeList}">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/image' + ${recipe.num} + '.jpg'}" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;" th:text="${recipe.coffee_name}"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="javascript:void(0)" data-coffee-name="${recipe.coffee_name}" onclick="addToCart(this)" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;" th:text="${recipe.recipe_price}"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- 이미지 -->
-    <div id="latteCoffee" style="display: none;">
-        <div class="album py-5 bg-white">
-            <div class="container">
-                <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
-                    <h5 style="font-weight: bold;">아메리카노</h5>
-                </div>
-                <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
-                    <div class="col" th:each="recipe : ${recipeList}">
-                        <div class="card shadow-sm">
-                            <a href="coffeebean_info.html">
-                                <img aria-label="Placeholder: Thumbnail"
-                                     class="bd-placeholder-img card-img-top" focusable="false" height="300"
-                                     preserveAspectRatio="xMidYMid slice"
-                                     role="img"
-                                     th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/image' + ${recipe.num} + '.jpg'}"
-                                     width="100%"/>
-                            </a>
-                            <div class="card-body" style="height: 140px;">
-                                <p class="card-text" style="font-size: 20px;" th:text="${recipe.coffee_name}"></p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group" style="margin-top: 30px;">
-                                        <a class="btn btn-sm btn-outline-secondary" href="coffeebean_info.html">보기</a>
-                                        <a class="btn btn-sm btn-outline-secondary"
-                                           data-coffee-name="${recipe.coffee_name}"
-                                           href="javascript:void(0)" onclick="addToCart(this)">장바구니</a>
-                                    </div>
-                                    <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;"
-                                           th:text="${recipe.recipe_price}"></small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="alert" id="alert"
-             style="display: none; position: fixed; z-index: 1000; left: 50%; top: 50%; transform: translate(-50%, -50%); background-color: white; padding: 10px; border: 1px solid gray; border-radius: 5px;">
-            <p>상품이 장바구니에 추가되었습니다.</p>
-            <button id="confirmButton">확인</button>
-        </div>
-
-
-        <div id="cappuccinoCoffee" style="display: none;">
-            <div class="album py-5 bg-white">
-                <div class="container">
-                    <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
-                        <h5 style="font-weight: bold;">카푸치노</h5>
-                    </div>
-                    <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
-                        <div class="col" th:each="recipe : ${recipeList}">
-                            <div class="card shadow-sm">
-                                <a href="coffeebean_info.html">
-                                    <img aria-label="Placeholder: Thumbnail"
-                                         class="bd-placeholder-img card-img-top" focusable="false" height="300"
-                                         preserveAspectRatio="xMidYMid slice"
-                                         role="img"
-                                         th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/image' + ${recipe.num} + '.jpg'}"
-                                         width="100%"/>
-                                </a>
-                                <div class="card-body" style="height: 140px;">
-                                    <p class="card-text" style="font-size: 20px;" th:text="${recipe.coffee_name}"></p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group" style="margin-top: 30px;">
-                                            <a class="btn btn-sm btn-outline-secondary"
-                                               href="coffeebean_info.html">보기</a>
-                                            <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0)"
-                                               onclick="addToCart('${recipe.coffee_name}')">장바구니</a>
-                                        </div>
-                                        <small class="text-muted"
-                                               style="font-size: 24px; position: relative; top: 16px;"
-                                               th:text="${recipe.recipe_price}"></small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div id="alert" class="alert" style="display: none;">
+      상품이 장바구니에 추가되었습니다.
+      <button id="confirmButton" onclick="closeAlert();">확인</button>
     </div>
 
+    <div id="overlay" class="overlay" style="display: none;"></div>
 
-    <!-- 이미지 2 (커피2)-->
-    <div class="container">
-        <div id="latteCoffee2" style="display: none;">
-            <div class="album py-5 bg-white">
-                <div class="container">
-                    <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
-                        <h5 style="font-weight: bold;">커피2</h5>
+
+
+
+
+
+
+    <div id="cappuccinoCoffee" style="display: none;">
+      <div class="album py-5 bg-white">
+        <div class="container">
+          <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
+            <h5 style="font-weight: bold;">카푸치노</h5>
+          </div>
+          <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <div class="col" th:each="recipe : ${recipeList}">
+              <div class="card shadow-sm">
+                <a href="coffeebean_info.html">
+                  <img th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/image' + ${recipe.num} + '.jpg'}" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+                </a>
+                <div class="card-body" style="height: 140px;">
+                  <p class="card-text" style="font-size: 20px;" th:text="${recipe.coffee_name}"></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group" style="margin-top: 30px;">
+                      <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                      <a href="javascript:void(0)" onclick="addToCart('${recipe.coffee_name}')" class="btn btn-sm btn-outline-secondary">장바구니</a>
                     </div>
-                    <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
-                        <div class="col" th:each="recipe : ${recipeList}">
-                            <div class="card shadow-sm">
-                                <a href="coffeebean_info.html">
-                                    <img aria-label="Placeholder: Thumbnail"
-                                         class="bd-placeholder-img card-img-top" focusable="false" height="300"
-                                         preserveAspectRatio="xMidYMid slice"
-                                         role="img"
-                                         th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/image' + ${recipe.num} + '.jpg'}"
-                                         width="100%"/>
-                                </a>
-                                <div class="card-body" style="height: 140px;">
-                                    <p class="card-text" style="font-size: 20px;" th:text="${recipe.coffee_name}"></p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group" style="margin-top: 30px;">
-                                            <a class="btn btn-sm btn-outline-secondary"
-                                               href="coffeebean_info.html">보기</a>
-                                            <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0)"
-                                               onclick="addToCart('${recipe.coffee_name}')">장바구니</a>
-                                        </div>
-                                        <small class="text-muted"
-                                               style="font-size: 24px; position: relative; top: 16px;"
-                                               th:text="${recipe.recipe_price}"></small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;" th:text="${recipe.recipe_price}"></small>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
 
-    <div id="cappuccinoCoffee2" style="display: none;">
-        <div class="album py-5 bg-white">
-            <div class="container">
-                <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
-                    <h5 style="font-weight: bold;">카푸치노2</h5>
-                </div>
-                <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
-                    <div class="col" th:each="recipe : ${recipeList}">
-                        <div class="card shadow-sm">
-                            <a href="coffeebean_info.html">
-                                <img aria-label="Placeholder: Thumbnail"
-                                     class="bd-placeholder-img card-img-top" focusable="false" height="300"
-                                     preserveAspectRatio="xMidYMid slice"
-                                     role="img"
-                                     th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/image' + ${recipe.num} + '.jpg'}"
-                                     width="100%"/>
-                            </a>
-                            <div class="card-body" style="height: 140px;">
-                                <p class="card-text" style="font-size: 20px;" th:text="${recipe.coffee_name}"></p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group" style="margin-top: 30px;">
-                                        <a class="btn btn-sm btn-outline-secondary" href="coffeebean_info.html">보기</a>
-                                        <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0)"
-                                           onclick="addToCart('${recipe.coffee_name}')">장바구니</a>
-                                    </div>
-                                    <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;"
-                                           th:text="${recipe.recipe_price}"></small>
-                                </div>
-                            </div>
-                        </div>
+
+
+
+
+<!-- 이미지 2 (커피2)-->
+  <div class="container">
+    <div id="latteCoffee2" style="display: none;">
+      <div class="album py-5 bg-white">
+        <div class="container">
+          <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
+            <h5 style="font-weight: bold;">커피2</h5>
+          </div>
+          <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <div class="col" th:each="recipe : ${recipeList}">
+              <div class="card shadow-sm">
+                <a href="coffeebean_info.html">
+                  <img th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/image' + ${recipe.num} + '.jpg'}" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+                </a>
+                <div class="card-body" style="height: 140px;">
+                  <p class="card-text" style="font-size: 20px;" th:text="${recipe.coffee_name}"></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group" style="margin-top: 30px;">
+                      <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                      <a href="javascript:void(0)" onclick="addToCart('${recipe.coffee_name}')" class="btn btn-sm btn-outline-secondary">장바구니</a>
                     </div>
+                    <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;" th:text="${recipe.recipe_price}"></small>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
 
-    <!-- 원두 메뉴 -->
+
+  <div id="cappuccinoCoffee2" style="display: none;">
+    <div class="album py-5 bg-white">
+      <div class="container">
+        <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
+          <h5 style="font-weight: bold;">카푸치노2</h5>
+        </div>
+        <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
+          <div class="col" th:each="recipe : ${recipeList}">
+            <div class="card shadow-sm">
+              <a href="coffeebean_info.html">
+                <img th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/image' + ${recipe.num} + '.jpg'}" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+              </a>
+              <div class="card-body" style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;" th:text="${recipe.coffee_name}"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" style="margin-top: 30px;">
+                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="javascript:void(0)" onclick="addToCart('${recipe.coffee_name}')" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                  </div>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;" th:text="${recipe.recipe_price}"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 원두 메뉴 -->
 
 
 </main>
 
 <footer>
-    <div th:replace="./footer.html"></div>
+  <div th:replace="./footer.html"></div>
 </footer>
 
 
-<script crossorigin="anonymous"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
 
 </body>
