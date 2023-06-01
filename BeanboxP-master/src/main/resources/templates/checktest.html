@@ -94,43 +94,7 @@
 
 <!-- 네비게이션 바 -->
 <header>
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Beanbox</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">My Box</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-               aria-expanded="false">
-              Menu
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">커피</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">아메리카노</a></li>
-              <li><a class="dropdown-item" href="#">카페라떼</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="지역, 음식 등" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+  <div th:replace="./navbar.html"></div>
 </header>
 
 
@@ -222,31 +186,39 @@
           <div class="col">
             <div class="card shadow-sm">
               <a href="coffeebean_info.html">
-                <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+                <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80"
+                     class="bd-placeholder-img card-img-top" width="100%" height="300" role="img"
+                     aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"/>
               </a>
-              <div class="card-body" style="height: 140px;">
-                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+              <div class="card-body"   style="height: 140px;">
+                <p class="card-text" style="font-size: 20px;">아메리카노</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group" style="margin-top: 30px;">
-                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
-                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                    <a href="recipe.html" class="btn btn-sm btn-outline-secondary">보기</a>
+                    <a href="#" id="/add-to-cart"  class="btn btn-sm btn-outline-secondary">장바구니 </a>
+
+
+
                   </div>
                   <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col">
+
             <div class="card shadow-sm">
               <a href="coffeebean_info.html">
-                <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+                <img src="https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/4svblftkmvcldo.jpg?fit=around|738:738&crop=738:738;*,*&output-format=jpg&output-quality=80"
+                     class="bd-placeholder-img card-img-top" width="100%" height="300" role="img"
+                     aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"/>
               </a>
               <div class="card-body" style="height: 140px;">
                 <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group" style="margin-top: 30px;">
                     <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
-                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
+                    <a href="/addItem?cart_number=1&user_id=johndoe&product_number=A1&item_quantity=1"
+                       class="btn btn-sm btn-outline-secondary">장바구니</a>
+
                   </div>
                   <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
                 </div>
