@@ -1,36 +1,22 @@
 package Beanbox.Beanbox.controller;
 
-import Beanbox.Beanbox.dto.CartDto;
-import Beanbox.Beanbox.dto.RecipeDto;
 import Beanbox.Beanbox.dto.UserDto;
-import Beanbox.Beanbox.model.CartMapper;
-import Beanbox.Beanbox.model.RecipeMapper;
 import Beanbox.Beanbox.model.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpSession;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/auth")
 public class UserController {
 
     @Autowired
     private UserMapper userMapper;
-
-    @Autowired
-    private HttpSession httpSession;
-
-    @Autowired
-    private CartMapper cartMapper;
-
-    @Autowired
-    private RecipeMapper recipeMapper;
 
     @PostMapping("/register")
     public Map<String, String> signup(@RequestBody UserDto user) {
@@ -62,52 +48,4 @@ public class UserController {
 
         return response;
     }
-
-    @GetMapping("/mypage")
-    public String mypage(Model model, HttpSession session)  {
-        String username = (String) session.getAttribute("username");
-
-        if (username == null) {
-            return "login";
-        } else {
-            List<UserDto> userList = userMapper.getUserList();
-
-            model.addAttribute("userList", userList);
-            model.addAttribute("username", username);
-        }
-        return "mypage";
-    }
-
-    @GetMapping("/cart")
-    public String cart(Model model, HttpSession session) {
-        String username = (String) session.getAttribute("username");
-
-        if (username == null) {
-            return "login";
-        } else {
-            List<RecipeDto> recipeList = recipeMapper.getRecipeList();
-            List<CartDto> cartList = cartMapper.getCartList();
-
-            model.addAttribute("cartList", cartList);
-            model.addAttribute("recipeList", recipeList);
-            model.addAttribute("username", username);
-        }
-        return "cart";
-    }
-
-    @GetMapping("/checktest")
-    public String checktest(Model model, HttpSession session) {
-        String username = (String) session.getAttribute("username");
-
-        if (username == null) {
-            return "login";
-        } else {
-            List<RecipeDto> recipeList = recipeMapper.getRecipeList();
-
-            model.addAttribute("recipeList", recipeList);
-            model.addAttribute("username", username);
-        }
-        return "checktest";
-    }
-
 }
