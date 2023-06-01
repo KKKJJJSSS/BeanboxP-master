@@ -2,48 +2,59 @@
       integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
 
 <style>
+  .navbar {
+    background-color: #262626!important;
+  }
   .navbar-collapse {
-    justify-content: flex-end;
+    justify-content: center;
+    margin-right: 5rem;
   }
   .navbar-brand {
-    margin-left: 2rem;
+    justify-content: center;
+    display: flex;
     cursor : pointer;
+    flex-grow: 1;
   }
   .nav-item {
     cursor : pointer;
+    margin-right: 2rem;
+  }
+  .nav-link {
+    color: white;
+  }
+  @media screen and (max-width:960px) {
+    .navbar-collapse {
+      margin-right: 0rem;
+    }
+    .nav-item {
+      margin-right: 0rem;
+    }
   }
 </style>
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href=/index>
-      <img src="../static/images/icon.png"/>
+    <a class="navbar-brand" href="/index">
+      <img src="/static/images/icon.png" />
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            arNia-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="nav-container">
         <div class="navbar-content">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href=/login>Sign In</a>
+            <li class="nav-item dropdown" id="logged-section">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span id="usernameLbl"></span>
+              </a>
+              <ul class="dropdown-menu logged-user-dropdown" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/mypage" style="cursor:pointer">마이 박스</a></li>
+                <li><a class="dropdown-item" href="/sidebutton" style="cursor:pointer">상점</a></li>
+                <li><a class="dropdown-item" href="/checktest" style="cursor:pointer">레시피</a></li>
+                <li><a class="dropdown-item" href="/gps" style="cursor:pointer">카페 찾기</a></li>
+                <hr>
+                <li><a class="dropdown-item" onclick="logout()" style="cursor:pointer">로그아웃</a></li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href=/mypage>My Box</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=/sidebutton>Store</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=/checktest>Menu</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=/menu>Recipe</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=/gps>Find Store</a>
+            <li class="nav-item" id="login-section">
+              <a class="nav-link" href="/login">로그인/회원가입</a>
             </li>
           </ul>
         </div>
@@ -51,3 +62,7 @@
     </div>
   </div>
 </nav>
+<script type="text/javascript" src="../static/js/navbar.js"></script>
+<script type="text/javascript">
+  updateNavbar(); // 이 호출이 페이지 로드 시 마다 실행되어야 합니다.
+</script>
