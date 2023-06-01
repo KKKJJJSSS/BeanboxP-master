@@ -32,35 +32,48 @@
 
 
   <script>
-    function updatePopupPosition() {
-      const alertBox = document.getElementById("alert");
-      const yOffset = window.pageYOffset || document.documentElement.scrollTop;
-      const windowHeight = window.innerHeight;
-      const alertBoxHeight = alertBox.offsetHeight;
-      const topPosition = yOffset + (windowHeight - alertBoxHeight) / 2;
-      alertBox.style.top = topPosition + 'px';
-    }
-
     function addToCart() {
-      const overlay = document.getElementById("overlay");
-      const alertBox = document.getElementById("alert");
+      // 팝업을 표시합니다.
+      let alertDiv = document.getElementById("alert");
+      alertDiv.style.display = "block";
+      alertDiv.style.position = "fixed"; // 고정 위치를 사용하도록 변경
 
+      // 브라우저 창 가운데 위치시킵니다.
+      let windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+      // 요소의 크기를 얻습니다.
+      let alertSize = alertDiv.getBoundingClientRect();
+
+      alertDiv.style.left = (windowWidth - alertSize.width) / 2 + 'px';
+      alertDiv.style.top = (windowHeight - alertSize.height) / 2 + 'px';
+
+      // 오버레이를 활성화합니다.
+      let overlay = document.getElementById("overlay");
       overlay.style.display = "block";
-      alertBox.style.display = "block";
-      updatePopupPosition();
-      window.onscroll = updatePopupPosition;
+      overlay.style.position = "fixed"; // 고정 위치를 사용하도록 변경
+      overlay.style.top = 0;
+      overlay.style.left = 0;
+      overlay.style.width = "100%";
+      overlay.style.height = "100%";
+
+      // 스크롤을 비활성화합니다.
+      document.body.style.overflow = "hidden";
 
     }
-    //alert('장바구니 추가');
+
     function closeAlert() {
-      const overlay = document.getElementById("overlay");
-      const alertBox = document.getElementById("alert");
+      // 팝업을 숨깁니다.
+      let alertDiv = document.getElementById("alert");
+      alertDiv.style.display = "none";
 
+      // 오버레이를 비활성화합니다.
+      let overlay = document.getElementById("overlay");
       overlay.style.display = "none";
-      alertBox.style.display = "none";
-      window.onscroll = null;
-    }
 
+      // 스크롤을 재활성화합니다.
+      document.body.style.overflow = "auto";
+    }
   </script>
 
 
@@ -167,24 +180,6 @@
       <input class="form-check-input" type="checkbox" value="" id="cappuccinoSelect2">
       <label class="form-check-label" for="cappuccinoSelect2">모카</label>
     </div>
-
-
-<!--    <div class="checkbox">-->
-<!--      <input type="checkbox" id="checkbox1" name="checkbox1" value="checkbox1" />-->
-<!--      <label for="checkbox1">Checkbox 1</label>-->
-<!--    </div>-->
-<!--    <div class="checkbox">-->
-<!--      <input type="checkbox" id="checkbox2" name="checkbox2" value="checkbox2" />-->
-<!--      <label for="checkbox2">Checkbox 2</label>-->
-<!--    </div>-->
-<!--    <div class="checkbox" style="display: none;">-->
-<!--      <input type="checkbox" id="checkbox3" name="checkbox3" value="checkbox3" />-->
-<!--      <label for="checkbox3">Checkbox 3</label>-->
-<!--    </div>-->
-<!--    <div class="checkbox" style="display: none;">-->
-<!--      <input type="checkbox" id="checkbox4" name="checkbox4" value="checkbox4" />-->
-<!--      <label for="checkbox4">Checkbox 4</label>-->
-<!--    </div>-->
   </div>
 </div>
 
@@ -229,113 +224,24 @@
           <h5>카푸치노</h5>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col">
+          <div class="col" th:each="menu : ${menuList}">
             <div class="card shadow-sm">
               <a href="coffeebean_info.html">
                 <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
               </a>
               <div class="card-body" style="height: 140px;">
-                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
+                <p class="card-text" style="font-size: 20px;" th:text="${menu.menu_name}"></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group" style="margin-top: 30px;">
                     <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
                     <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
                   </div>
-                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <a href="coffeebean_info.html">
-                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
-              </a>
-              <div class="card-body" style="height: 140px;">
-                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" style="margin-top: 30px;">
-                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
-                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
-                  </div>
-                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <a href="coffeebean_info.htmll">
-                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
-              </a>
-              <div class="card-body" style="height: 140px;">
-                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" style="margin-top: 30px;">
-                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
-                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
-                  </div>
-                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
+                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;" th:text="${menu.menu_price}">12900원</small>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col">
-            <div class="card shadow-sm">
-              <a href="coffeebean_info.html">
-                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
-              </a>
-              <div class="card-body" style="height: 140px;">
-                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" style="margin-top: 30px;">
-                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
-                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
-                  </div>
-                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <a href="coffeebean_info.html">
-                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
-              </a>
-              <div class="card-body" style="height: 140px;">
-                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" style="margin-top: 30px;">
-                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
-                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
-                  </div>
-                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <a href="coffeebean_info.html">
-                <img src="https://www.beantobean.com/web/upload/NNEditor/20160513/ECB9B4ED91B8ECB998EB85B8.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
-              </a>
-              <div class="card-body" style="height: 140px;">
-                <p class="card-text" style="font-size: 20px;">아구스트 이탈리야 스페셜티 커피</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" style="margin-top: 30px;">
-                    <a href="coffeebean_info.html" class="btn btn-sm btn-outline-secondary">보기</a>
-                    <a href="cart.html" class="btn btn-sm btn-outline-secondary">장바구니</a>
-                  </div>
-                  <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;">12900원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 <!-- 이미지 2 (커피2)-->
