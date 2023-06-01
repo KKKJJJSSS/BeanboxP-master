@@ -16,7 +16,25 @@
 .card-img-top{
     background: linear-gradient(#E5E2DB, white);
     margin-top: 1rem;
+    width: 200px;
+    height: 200px;
 }
+
+.img-thumbnail {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    width: 80%;
+    background: linear-gradient(#E5E2DB, white);
+    height: 400px!important;
+    width: 400px;
+}
+
+@media screen and (max-width: 1400px) {
+    .img-thumbnail {
+        height: 300px!important;
+    }
+}
+
 @media screen and (max-width: 960px) {
     .card-body .btn {
         font-size: 0!important; /* 기존 텍스트를 숨김 */
@@ -25,12 +43,18 @@
         content: 'Go';
         font-size: 12px; /* 원하는 폰트 크기로 설정 */
     }
+    .card-img-top {
+        height: 100px;
+    }
     .recipe {
         text-align: center;
         margin: 0 auto!important;
     }
-    .recipe-img {
-        display: none;
+    .img-thumbnail {
+        width: 200px!important;
+        height: 200px!important;
+        display: flex;
+        margin: 2rem auto auto;
     }
 }
 

@@ -25,9 +25,10 @@
                 <img alt="Uploaded Image" class="img-thumbnail" height="auto" src="../static/images/coffeebean.jpg"
                      width="100%">
             </div>
-            <div class="col recipe-text">
+            <div class="col-md recipe-text">
                 <div th:each="bean : ${filteredBeans}">
                     <div th:if="${extractedText.contains(bean.bean_name) || extractedText.contains(bean.bean_kor)}">
+                        <hr class="recipe-divider">
                         <div class="row">
                             <h class="bean-name" th:text="${bean.bean_name}">원두</h>
                         </div>
@@ -81,28 +82,28 @@
         <div class="bean-list row">
             <div class="card col-md-2" th:each="bean : ${filteredBeans}"
                  th:if="${extractedText.contains(bean.bean_name) || extractedText.contains(bean.bean_kor)}">
-                <img class="card-img-top" th:src="@{'../static/images/bean/' + ${bean.bean_name} + '/image1.png'}">
+                <img class="card-img-top" th:src="@{'../static/images/bean/' + ${bean.bean_name} + '/image1.jpg'}">
                 <div class="card-body">
                     <a class="btn btn-dark" th:href="@{/recipe(filename='image1', beanName=${bean.bean_name})}">레시피 보러가기</a>
                 </div>
             </div>
             <div class="card col-md-2" th:each="bean : ${filteredBeans}"
                  th:if="${extractedText.contains(bean.bean_name) || extractedText.contains(bean.bean_kor)}">
-                <img class="card-img-top" th:src="@{'../static/images/bean/' + ${bean.bean_name} + '/image2.png'}">
+                <img class="card-img-top" th:src="@{'../static/images/bean/' + ${bean.bean_name} + '/image2.jpg'}">
                 <div class="card-body">
                     <a class="btn btn-dark" th:href="@{/recipe(filename='image2', beanName=${bean.bean_name})}">레시피 보러가기</a>
                 </div>
             </div>
             <div class="card col-md-2" th:each="bean : ${filteredBeans}"
                  th:if="${extractedText.contains(bean.bean_name) || extractedText.contains(bean.bean_kor)}">
-                <img class="card-img-top" th:src="@{'../static/images/bean/' + ${bean.bean_name} + '/image3.png'}">
+                <img class="card-img-top" th:src="@{'../static/images/bean/' + ${bean.bean_name} + '/image3.jpg'}">
                 <div class="card-body">
                     <a class="btn btn-dark" th:href="@{/recipe(filename='image3', beanName=${bean.bean_name})}">레시피 보러가기</a>
                 </div>
             </div>
             <div class="card col-md-2" th:each="bean : ${filteredBeans}"
                  th:if="${extractedText.contains(bean.bean_name) || extractedText.contains(bean.bean_kor)}">
-                <img class="card-img-top" th:src="@{'../static/images/bean/' + ${bean.bean_name} + '/image4.png'}">
+                <img class="card-img-top" th:src="@{'../static/images/bean/' + ${bean.bean_name} + '/image4.jpg'}">
                 <div class="card-body">
                     <a class="btn btn-dark" th:href="@{/recipe(filename='image4', beanName=${bean.bean_name})}">레시피 보러가기</a>
                 </div>

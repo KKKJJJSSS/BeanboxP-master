@@ -1,71 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="" name="description">
+  <meta content="Mark Otto, Jacob Thornton, and Bootstrap contributors" name="author">
+  <meta content="Hugo 0.104.2" name="generator">
   <title>Beanbox</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
-        integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
-  <link href="../static/css/login.css" type = "text/css" rel="stylesheet"/>
-  <link rel="shortcut icon" href="../static/assets/favicon.ico" type="image/x-icon">
-  <script src="/static/js/login.js"></script>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" rel="stylesheet">
+  <link href="../static/assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="../static/css/login.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-
 <header>
   <div th:replace="./navbar.html"></div>
 </header>
-
-<div class="login-wrap">
-  <div class="login-html">
-    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-    <div class="login-form">
-      <div class="sign-in-htm">
-        <div class="group">
-          <label for="user" class="label">아이디</label>
-          <input id="user" type="text" class="input">
-        </div>
-        <div class="group">
-          <label for="pass" class="label">비밀번호</label>
-          <input id="pass" type="password" class="input" data-type="password">
-        </div>
-        <div class="group">
-          <input type="submit" class="button" value="로그인">
-        </div>
-        <div class="hr"></div>
-        <div class="foot-lnk">
-          <a href="#forgot">비밀번호를 잊어버리셨나요?</a>
+<main>
+  <div id="container" class="container">
+    <div class="row">
+      <div class="col align-items-center flex-col sign-up">
+        <div class="form-wrapper align-items-center">
+          <form id="registerForm" action="/auth/register" method="POST" class="form sign-up">
+            <div class="input-group">
+              <i class='bx bxs-user'></i>
+              <input type="text" name="username" placeholder="사용자 이름" required>
+            </div>
+            <div class="input-group">
+              <i class='bx bx-mail-send'></i>
+              <input type="email" name="email" placeholder="이메일" required>
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-lock-alt'></i>
+              <input type="password" name="password" placeholder="비밀번호" required>
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-number'></i>
+              <input type="number" name="number" placeholder="휴대폰 번호" required>
+            </div>
+            <button type="submit">회원가입</button>
+            <p>
+              <span>계정이 있으신가요?</span>
+              <b onclick="toggle()" class="pointer">로그인하기</b>
+            </p>
+          </form>
         </div>
       </div>
-      <div class="sign-up-htm">
-        <div class="group">
-          <label for="user" class="label">아이디</label>
-          <input id="user" type="text" class="input">
+      <div class="col align-items-center flex-col sign-in">
+        <div class="form-wrapper align-items-center">
+          <form id="loginForm" action="/auth/login" method="POST" class="form sign-in">
+            <div class="input-group">
+              <i class='bx bxs-user'></i>
+              <input type="text" name="username" placeholder="사용자 이름" required>
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-lock-alt'></i>
+              <input type="password" name="password" placeholder="비밀번호" required>
+            </div>
+            <button type="submit">로그인</button>
+            <p><b>비밀번호를 잊으셨나요?</b></p>
+            <p>
+              <span>계정이 없으신가요?</span>
+              <b onclick="toggle()" class="pointer">회원가입하기</b>
+            </p>
+          </form>
         </div>
-        <div class="group">
-          <label for="pass" class="label">비밀번호</label>
-          <input id="pass" type="password" class="input" data-type="password">
+      </div>
+    </div>
+    <div class="row content-row">
+      <div class="col align-items-center flex-col">
+        <div class="text sign-in">
+          <h2>환영합니다</h2>
         </div>
-        <div class="group">
-          <label for="pass" class="label">생년월일</label>
-          <input id="pass" type="password" class="input" data-type="password">
-        </div>
-        <div class="group">
-          <label for="pass" class="label">이메일</label>
-          <input id="pass" type="text" class="input">
-        </div>
-        <div class="group">
-          <input type="submit" class="button" value="Sign Up">
-        </div>
-        <div class="hr"></div>
-        <div class="foot-lnk">
-          <label for="tab-1">Already Member?</a>
+        <div class="img sign-in"></div>
+      </div>
+      <div class="col align-items-center flex-col">
+        <div class="img sign-up"></div>
+        <div class="text sign-up">
+          <h2>함께하세요</h2>
         </div>
       </div>
     </div>
   </div>
-</div>
+</main>
+
+<script crossorigin="anonymous"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/login.js"></script>
+<script src="../static/js/navbar.js"></script>
 
 </body>
 </html>

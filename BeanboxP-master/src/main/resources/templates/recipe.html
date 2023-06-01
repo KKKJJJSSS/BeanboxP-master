@@ -20,12 +20,12 @@
 <main>
     <div class="container marketing">
         <div class="row recipe">
-            <div class="col recipe-img" th:each="recipe : ${recipeList}"
+            <div class="col-md recipe-img" th:each="recipe : ${recipeList}"
                 th:if="${img_number.equals(recipe.img_number)}">
-                <img alt="americano" class="img-thumbnail" height="auto" th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/' + ${filename} + '.png'}"
+                <img alt="americano" class="img-thumbnail" height="auto" th:src="@{'../static/images/bean/' + ${recipe.recipe_bean} + '/' + ${filename} + '.jpg'}"
                      width="100%">
             </div>
-            <div class="col recipe-text">
+            <div class="col-md recipe-text">
                 <div th:each="recipe : ${recipeList}">
                     <div th:if="${img_number.equals(recipe.img_number)}">
                         <hr class="featurette-divider">

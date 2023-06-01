@@ -21,6 +21,10 @@ public class MainController {
     public String login() {
         return "login";
     }
+    @GetMapping("/menu")
+    public String menu() {
+        return "menu";
+    }
     @GetMapping("/mypage")
     public String mypage() {
         return "mypage";
@@ -33,6 +37,6 @@ public class MainController {
     public String sidebutton() {
         return "sidebutton";
     }
-
-
+    @GetMapping("/checktest")
+    public String checktest(){ return "checktest"; }
 }

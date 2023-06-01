@@ -6,27 +6,16 @@
     color: #333;
     line-height: 1.6;
     text-align: center;
-    display: block;
     margin-block-start: 3em;
     margin-block-end: 3em;
     margin-inline-start: 0;
     margin-inline-end: 0;
-}
-.recipe {
-    width: 100%;
-}
-
-.recipe-img{
-    margin:2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .recipe-text {
-    margin-top: 4em !important;
-    font-size: 17px;
-}
-
-.recipe-text {
-    margin-top: 4em !important;
+    margin-top: 3rem !important;
     font-size: 17px;
 }
 
@@ -36,8 +25,11 @@
 
 .img-thumbnail {
     margin-top: 4rem;
+    margin-bottom: 3rem;
     width: 80%;
     background: linear-gradient(#E5E2DB, white);
+    height: 400px!important;
+    width: 400px;
 }
 
 .recipe-divider2{
@@ -54,23 +46,37 @@
     font-size: 20px;
 }
 
+@media screen and (max-width: 1400px) {
+    .img-thumbnail {
+        height: 300px!important;
+    }
+}
 
 @media screen and (max-width:960px) {
     .btn {
         font-size: 13px !important;
     }
     .img-thumbnail {
-        margin-top: 6rem;
-        width: 100%;
+        margin-top: 2rem;
     }
     .recipe-text {
         margin-top: 1em !important;
+        text-align: center;
     }
     .recipe-name {
         font-size: 15px
     }
     .bean-name {
         font-size: 13px
+    }
+    .img-thumbnail {
+        width: 200px!important;
+        height: 200px!important;
+        display: flex;
+        margin: 2rem auto auto;
+    }
+    .text-context {
+        width: 300px;
     }
 }
 
