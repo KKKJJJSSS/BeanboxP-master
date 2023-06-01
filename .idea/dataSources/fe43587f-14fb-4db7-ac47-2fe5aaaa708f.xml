@@ -1981,47 +1981,42 @@
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="512" parent="345" name="name">
-      <DasType>varchar(20)|0s</DasType>
+    <column id="512" parent="345" name="email">
+      <DasType>varchar(40)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="513" parent="345" name="email">
-      <DasType>varchar(40)|0s</DasType>
+    <column id="513" parent="345" name="number">
+      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="514" parent="345" name="number">
-      <DasType>int(11)|0s</DasType>
+    <column id="514" parent="345" name="password">
+      <DasType>varchar(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="515" parent="345" name="password">
-      <DasType>varchar(20)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="515" parent="345" name="point">
+      <DasType>decimal(10)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="516" parent="345" name="point">
-      <DasType>decimal(10)|0s</DasType>
-      <Position>6</Position>
-    </column>
-    <index id="517" parent="345" name="PRIMARY">
+    <index id="516" parent="345" name="PRIMARY">
       <ColNames>username</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="518" parent="345" name="UNIQUE">
+    <index id="517" parent="345" name="UNIQUE">
       <ColNames>email
-number
-name</ColNames>
+number</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="519" parent="345" name="PRIMARY">
+    <key id="518" parent="345" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="520" parent="345" name="UNIQUE">
+    <key id="519" parent="345" name="UNIQUE">
       <UnderlyingIndexName>UNIQUE</UnderlyingIndexName>
     </key>
   </database-model>
