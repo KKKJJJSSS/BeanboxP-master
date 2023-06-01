@@ -33,7 +33,6 @@ public class UserController {
     private RecipeMapper recipeMapper;
 
     @PostMapping("/register")
-    @ResponseBody
     public Map<String, String> signup(@RequestBody UserDto user) {
         Map<String, String> response = new HashMap<>();
 
@@ -50,16 +49,13 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    @ResponseBody
     public Map<String, Object> signin(@RequestBody UserDto user) {
         Map<String, Object> response = new HashMap<>();
 
         UserDto foundUser = userMapper.findByUsername(user.getUsername());
         if (foundUser != null && foundUser.getPassword().equals(user.getPassword())) {
             response.put("result", "success");
-            response.put("username", foundUser.getUsername());
-
-
+            response.put("username", foundUser.getUsername()); // username 값을 응답에 추가합니다.
         } else {
             response.put("result", "fail");
         }
