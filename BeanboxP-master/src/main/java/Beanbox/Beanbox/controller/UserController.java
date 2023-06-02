@@ -6,6 +6,8 @@ import Beanbox.Beanbox.dto.UserDto;
 import Beanbox.Beanbox.model.CartMapper;
 import Beanbox.Beanbox.model.RecipeMapper;
 import Beanbox.Beanbox.model.UserMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -107,13 +109,54 @@ public class UserController {
 
         if (username == null) {
             return "login";
-        } else {
-            List<RecipeDto> recipeList = recipeMapper.getRecipeList();
-
-            model.addAttribute("recipeList", recipeList);
-            model.addAttribute("username", username);
         }
+
+        List<RecipeDto> recipeList = recipeMapper.getRecipeList();
+
+        model.addAttribute("recipeList", recipeList);
+        model.addAttribute("username", username);
+
         return "checktest";
     }
 
+
+    @PostMapping("/add-to-cart")
+    public ResponseEntity<String> addToCart(HttpSession session, @RequestBody String coffeeName) {
+        String username = (String) session.getAttribute("username");
+
+        if (username == null) {
+            return new ResponseEntity<>("로그인이 필요합니다.", HttpStatus.UNAUTHORIZED);
+        }
+
+        List<String> allCoffeeNames = cartMapper.getAllCoffeeNamesForUser(username);
+
+        if (!allCoffeeNames.contains(coffeeName)) {
+            cartMapper.saveToCart(coffeeName, username);
+            return new ResponseEntity<>("상품이 성공적으로 장바구니에 추가되었습니다.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("이미 추가된 상품입니다.", HttpStatus.CONFLICT);
+        }
+    }
+
+    @RequestMapping(value = "/auth/delete_coffee_bean", method = RequestMethod.POST)
+    public ResponseEntity deleteCoffeeBean(@RequestParam("cart_number") int cartNumber, HttpSession session) {
+
+        // 삭제 작업 수행
+        int deletedRowCount = cartMapper.deleteCoffeeBeanByCartNumber(cartNumber);
+
+        if (deletedRowCount > 0) {
+            return ResponseEntity.ok("삭제되었습니다.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("삭제할 항목을 찾을 수 없습니다.");
+        }
+    }
+
+    @GetMapping("/cartrecipe")
+    public String getRecipeList(@RequestParam("img_number") String img_number, Model model) {
+        List<RecipeDto> recipeList = recipeMapper.getRecipeList();
+
+        model.addAttribute("recipeList", recipeList);
+        model.addAttribute("img_number", img_number);
+        return "cartrecipe";
+    }
 }

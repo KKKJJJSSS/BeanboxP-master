@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class RecipeDto {
     public String coffee_name;
+    public String ice_hot;
     public int recipe_price;
     public String recipe_description;
     public String recipe_bean;
