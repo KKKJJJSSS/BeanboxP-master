@@ -81,7 +81,35 @@
   display: flex;
 }
 
+/* 앱 다운로드 알림창 */
+.app-down {
+  position: absolute;
+  left: 20.5%;
+  bottom: 30%;
+  cursor: pointer;
+  text-decoration: underline;
+}
 
+.centered-box-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  padding: 5px;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%);
+}
+
+.centered-box-tooltip img {
+  width: 150px;
+  height: 150px;
+}
+
+.app-down:hover .centered-box-tooltip {
+  display: block;
+}
 
 @media (min-width: 40em) {
   /* Bump up size of carousel content */
@@ -105,6 +133,18 @@
   .btn-outline-light {
     font-size: 13px;
     left:17%;
+  }
+
+  .app-down {
+    left: 18.5%;
+    bottom: 25%;
+  }
+} 
+
+@media screen and (max-width: 1150px) {
+  .app-down {
+    left: 18.5%;
+    bottom: 15%;
   }
 }
 
@@ -139,11 +179,13 @@
     width: 30%;
     font-size: 13px;
   }
-
   .pc-drink {
     display: none;
   }
   .m-drink {
     display: block;
+  }
+  .app-down {
+    display: none;
   }
 }
