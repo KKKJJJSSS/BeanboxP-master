@@ -1,39 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
     var addToCartButtons = document.querySelectorAll('.btn-outline-secondary');
 
-    // Check if user is logged in. If not, redirect to the login page.
-    function requireLogin() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        if (!isLoggedIn) {
-            window.location.href = "/login";
-            return false;
-        }
-        return true;
-    }
-
-    // 장바구니 버튼 클릭 이벤트
+// 장바구니 버튼 클릭 이벤트
     addToCartButtons.forEach(function (button) {
         button.addEventListener('click', function (e) {
             e.preventDefault();
             var coffeeName = e.target.getAttribute('data-coffee-name');
-
-            // Check if the user is logged in before adding to the cart.
-            if (requireLogin()) {
-                addToCart(coffeeName);
-            }
+            addToCart(coffeeName);
         });
     });
 });
 
 function addToCart(coffeeName) {
 
-    // Ajax 요청을 사용하여 coffee_name 값을 서버로 전송
+// Ajax 요청을 사용하여 coffee_name 값을 서버로 전송
     fetch("/auth/add-to-cart", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ coffeeName: coffeeName })
+        body: coffeeName
     })
         .then(response => {
             if (response.ok) {
