@@ -3,6 +3,14 @@
     font-weight: bold;
 }
 
+.bean-name-img {
+    font-weight: bold;
+}
+
+.card-body .btn-dark {
+    margin-top: 1rem;
+}
+
 .bean-list{
     text-align: center;
     justify-content: center;
@@ -60,6 +68,7 @@
 
 @media screen and (max-width: 766px) {
     .card {
-        width:30%!important;
+        width:40%!important;
+        margin: 1rem;
     }
 }
