@@ -46,6 +46,15 @@
     font-size: 20px;
 }
 
+.recipe-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-btn .btn {
+    width: 200px;
+}
+
 @media screen and (max-width: 1400px) {
     .img-thumbnail {
         height: 300px!important;

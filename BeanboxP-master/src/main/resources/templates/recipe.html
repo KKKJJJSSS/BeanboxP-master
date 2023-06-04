@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <hr class="recipe-divider">
-                <div class="d-grid gap-2" th:each="recipe : ${recipeList}"
+                <div class="recipe-btn gap-4" th:each="recipe : ${recipeList}"
                      th:if="${img_number.equals(recipe.img_number)}">
                     <a class="btn btn-dark" type="button" href="/auth/checktest">레시피 상점</a>
                     <a class="btn btn-dark" type="button" th:href="@{/result(beanName=${recipe.recipe_bean})}">뒤로 가기</a>
