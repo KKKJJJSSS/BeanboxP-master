@@ -44,7 +44,7 @@
             <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
                 <h5 style="font-weight: bold;">My 장바구니</h5>
             </div>
-            <div class="row row-1 row-cols-sm-2 g-3">
+            <div class="row row-1 row-cols-md-2 row-cols-lg-4 g-3">
                 <div class="bd-img col-md-6" th:each="cart : ${cartList}" th:if="${cart.username} == ${username}">
                     <div class="card shadow-sm" th:each="recipe : ${recipeList}" th:if="${cart.coffee_name} == ${recipe.coffee_name}">
                         <a href="coffeebean_info.html">

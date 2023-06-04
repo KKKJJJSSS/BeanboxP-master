@@ -1,12 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
     var addToCartButtons = document.querySelectorAll('.btn-outline-secondary');
 
+    // Check if user is logged in. If not, redirect to the login page.
+    function requireLogin() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
+            window.location.href = "/login";
+            return false;
+        }
+        return true;
+    }
+
     // 장바구니 버튼 클릭 이벤트
     addToCartButtons.forEach(function (button) {
         button.addEventListener('click', function (e) {
             e.preventDefault();
             var coffeeName = e.target.getAttribute('data-coffee-name');
-            addToCart(coffeeName);
+
+            // Check if the user is logged in before adding to the cart.
+            if (requireLogin()) {
+                addToCart(coffeeName);
+            }
         });
     });
 });
@@ -19,7 +33,7 @@ function addToCart(coffeeName) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: coffeeName
+        body: JSON.stringify({ coffeeName: coffeeName })
     })
         .then(response => {
             if (response.ok) {
@@ -35,6 +49,7 @@ function addToCart(coffeeName) {
             alert("에러가 발생하였습니다."); // 팝업창 띄우기
         });
 }
+
 
 //체크박스 처리
 $(document).ready(function() {
