@@ -69,8 +69,8 @@
                 <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
                     <h5 style="font-weight: bold;">아이스</h5>
                 </div>
-                <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
-                    <div class="col" th:each="recipe : ${recipeList}"
+                <div class="row row-1 row-cols-xs-2 g-3">
+                    <div class="bd-img col-md-6" th:each="recipe : ${recipeList}"
                          th:if="${recipe.ice_hot}=='ice'">
                         <div class="card shadow-sm">
                             <a th:href="@{/auth/cartrecipe(img_number=${recipe.img_number})}">
@@ -107,8 +107,8 @@
                 <div style="background-color: darkgray; padding: 10px; margin-bottom: 20px;">
                     <h5 style="font-weight: bold;">핫</h5>
                 </div>
-                <div class="row row-1 row-cols-sm-2 row-cols-md-4 g-3">
-                    <div class="col" th:each="recipe : ${recipeList}"
+                <div class="row row-1 row-cols-xs-2 g-3">
+                    <div class="bd-img col-md-6" th:each="recipe : ${recipeList}"
                          th:if="${recipe.ice_hot}=='hot'">
                         <div class="card shadow-sm">
                             <a th:href="@{/auth/cartrecipe(img_number=${recipe.img_number})}">
