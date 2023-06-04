@@ -38,46 +38,77 @@ function addToCart(coffeeName) {
 
 
 //체크박스 처리
-$(document).ready(function() {
+function saveCheckboxState() {
+    localStorage.setItem("allSelectState", $('#allSelect').prop('checked'));
+    localStorage.setItem("iceSelectState", $('#iceSelect').prop('checked'));
+    localStorage.setItem("hotSelectState", $('#hotSelect').prop('checked'));
+}
 
-    // 체크박스 allSelect 가 클릭되었을 때
-    $('#allSelect').click(function() {
-        if ($(this).prop('checked')) {
-            $('#ice').show();
-            $('#hot').show();
+function displayCategory() {
+    const allSelect = $("#allSelect").prop("checked");
+    const iceSelect = $("#iceSelect").prop("checked");
+    const hotSelect = $("#hotSelect").prop("checked");
+
+    if (allSelect) {
+        $("#ice").show();
+        $("#hot").show();
+    } else {
+        if (iceSelect) {
+            $("#ice").show();
+        } else {
+            $("#ice").hide();
+        }
+
+        if (hotSelect) {
+            $("#hot").show();
+        } else {
+            $("#hot").hide();
+        }
+    }
+}
+
+function restoreCheckboxState() {
+    const allSelectState = localStorage.getItem("allSelectState");
+    const iceSelectState = localStorage.getItem("iceSelectState");
+    const hotSelectState = localStorage.getItem("hotSelectState");
+
+    if (allSelectState === "true" || allSelectState === null) {
+        $('#allSelect').prop('checked', true);
+        $('#iceSelect, #hotSelect').prop('checked', true);
+    } else {
+        $('#allSelect').prop('checked', false);
+        if (iceSelectState === "true" || iceSelectState === null) {
+            $('#iceSelect').prop('checked', true);
+        } else {
             $('#iceSelect').prop('checked', false);
+        }
+        if (hotSelectState === "true" || hotSelectState === null) {
+            $('#hotSelect').prop('checked', true);
+        } else {
             $('#hotSelect').prop('checked', false);
-        } else {
-            $('#ice').hide();
-            $('#hot').hide();
         }
-    }).click(); // allSelect 클릭 이벤트 발생
+    }
+    displayCategory();
+}
 
-    // 체크박스 iceSelect 가 클릭되었을 때
-    $('#iceSelect').click(function() {
-        if ($('#allSelect').prop('checked')) {
-            $('#ice').hide();
-            $('#hot').hide();
-        }
-        if ($(this).prop('checked')) {
-            $('#ice').show();
-            $('#allSelect').prop('checked', false);
-        } else {
-            $('#ice').hide();
-        }
+
+$(document).ready(function() {
+    restoreCheckboxState();
+
+    $('#allSelect').click(function() {
+        const isChecked = $(this).prop('checked');
+        $('#iceSelect, #hotSelect').prop('checked', isChecked);
+        saveCheckboxState();
+        displayCategory();
     });
 
-    // 체크박스 hotSelect 가 클릭되었을 때
-    $('#hotSelect').click(function() {
-        if ($('#allSelect').prop('checked')) {
-            $('#ice').hide();
-            $('#hot').hide();
-        }
-        if ($(this).prop('checked')) {
-            $('#hot').show();
-            $('#allSelect').prop('checked', false);
+    $('#iceSelect, #hotSelect').click(function() {
+        if ($('#iceSelect').prop('checked') && $('#hotSelect').prop('checked')) {
+            $('#allSelect').prop('checked', true);
         } else {
-            $('#hot').hide();
+            $('#allSelect').prop('checked', false);
         }
+        saveCheckboxState();
+        displayCategory();
     });
 });
