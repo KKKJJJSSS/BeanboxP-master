@@ -98,13 +98,16 @@ body, html {
         font-size: 13px!important;
     }
     .btn-group {
-        margin-top: 0px!important;
+        margin-top: 0!important;
     }
     .text-muted {
         font-size: 20px!important;
-        top: 0px!important;
+        top: 0!important;
     }
     .btn-group, .btn-group-vertical {
         display: block!important;
+    }
+    .bd-img {
+        max-width: 50%!important;
     }
 }

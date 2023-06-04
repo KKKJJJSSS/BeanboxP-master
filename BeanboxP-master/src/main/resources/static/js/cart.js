@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     var removeFromCartButtons = document.querySelectorAll('.btn-remove-from-cart');
 
-    // Remove from cart 버튼 클릭 이벤트
     removeFromCartButtons.forEach(function (button) {
         button.addEventListener('click', function (e) {
             e.preventDefault();
@@ -12,19 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function removeFromCart(cartNumber) {
-    // Fetch API를 사용하여 삭제 요청을 보낸 후 응답 처리
+    const formData = new FormData();
+    formData.append('cart_number', cartNumber);
+
     fetch("/auth/remove-from-cart", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({cart_number: cartNumber})
+        body: formData
     })
         .then(response => {
             if (response.ok) {
                 console.log("상품이 삭제되었습니다.");
                 alert("상품이 삭제되었습니다.");
-                // 성공적으로 상품이 삭제되면 페이지 새로고침 또는 DOM 조작
+                location.reload(); // 페이지 새로고침
             } else {
                 console.log("상품을 삭제하는 데 실패했습니다.");
                 alert("상품을 삭제하는 데 실패했습니다.");

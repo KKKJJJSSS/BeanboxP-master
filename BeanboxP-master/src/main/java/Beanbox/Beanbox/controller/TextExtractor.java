@@ -127,4 +127,24 @@ public class TextExtractor {
             }
         }
     }
+
+    @GetMapping("/result")
+    public String result(@RequestParam("beanName") String beanName, Model model) {
+        List<BeanDto> filteredBeans = new ArrayList<>();
+        String extractedText = beanName;
+
+        // beanList에서 조건을 확인하여 필터링
+        List<BeanDto> beanList = beanMapper.getBeanList();
+        for (BeanDto bean : beanList) {
+            filteredBeans.add(bean);
+        }
+
+        // 모델에 필터링된 결과 추가
+        model.addAttribute("filteredBeans", filteredBeans);
+        // 모델에 추출한 텍스트, 공백 제거한 텍스트 추가
+        model.addAttribute("extractedText", extractedText);
+
+
+        return "result";
+    }
 }

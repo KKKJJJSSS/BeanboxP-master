@@ -138,7 +138,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/auth/delete_coffee_bean", method = RequestMethod.POST)
+    @RequestMapping(value = "remove-from-cart", method = RequestMethod.POST)
     public ResponseEntity deleteCoffeeBean(@RequestParam("cart_number") int cartNumber, HttpSession session) {
 
         // 삭제 작업 수행
