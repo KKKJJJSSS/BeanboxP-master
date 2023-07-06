@@ -20,18 +20,4 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/order")
-    public String order() {
-        return "order";
-    }
-
-    @GetMapping("/sidebutton")
-    public String sidebutton() {
-        return "sidebutton";
-    }
-
-    @GetMapping("/coffeebean")
-    public String coffee_info() {
-        return "coffeebean_info";
-    }
 }
