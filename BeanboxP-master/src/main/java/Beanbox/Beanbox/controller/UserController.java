@@ -71,21 +71,6 @@ public class UserController {
         return response;
     }
 
-    @GetMapping("/mypage")
-    public String mypage(Model model, HttpSession session)  {
-        String username = (String) session.getAttribute("username");
-
-        if (username == null) {
-            return "login";
-        } else {
-            List<UserDto> userList = userMapper.getUserList();
-
-            model.addAttribute("userList", userList);
-            model.addAttribute("username", username);
-        }
-        return "mypage";
-    }
-
     @GetMapping("/cart")
     public String cart(Model model, HttpSession session) {
         String username = (String) session.getAttribute("username");
@@ -103,7 +88,7 @@ public class UserController {
         return "cart";
     }
 
-    @GetMapping("/checktest")
+    @GetMapping("/menu")
     public String checktest(Model model, HttpSession session) {
         String username = (String) session.getAttribute("username");
 
@@ -116,7 +101,7 @@ public class UserController {
         model.addAttribute("recipeList", recipeList);
         model.addAttribute("username", username);
 
-        return "checktest";
+        return "menu";
     }
 
 
@@ -139,7 +124,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "remove-from-cart", method = RequestMethod.POST)
-    public ResponseEntity deleteCoffeeBean(@RequestParam("cart_number") int cartNumber, HttpSession session) {
+    public ResponseEntity deleteCoffeeBean(@RequestParam("cart_number") int cartNumber) {
 
         // 삭제 작업 수행
         int deletedRowCount = cartMapper.deleteCoffeeBeanByCartNumber(cartNumber);

@@ -30,7 +30,7 @@ public class TextExtractor {
     }
 
     @PostMapping("/upload")
-    public String extractText(@RequestParam("file") MultipartFile file, Model model) throws IOException {
+    public String extractText(@RequestParam("file") MultipartFile file, Model model) {
         ImageAnnotatorClient client = null;
         try {
             // MultipartFile을 BufferedImage로 변환

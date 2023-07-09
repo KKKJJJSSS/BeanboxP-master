@@ -12,7 +12,7 @@
     <!-- Favicons -->
     <link href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
     <link color="#712cf9" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" rel="mask-icon">
-    <link href="../static/css/checktest.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/css/menu.css" rel="stylesheet" type="text/css"/>
     <meta content="#712cf9" name="theme-color">
 
 
@@ -20,7 +20,7 @@
           integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="../static/js/checktest.js"></script>
+    <script src="../static/js/menu.js"></script>
     <script src="../static/js/cart.js"></script>
 
 </head>
@@ -60,8 +60,6 @@
                                     <a class="btn btn-sm btn-outline-dark" th:href="@{/auth/cartrecipe(img_number=${recipe.img_number})}">보기</a>
                                     <button class="btn btn-sm btn-outline-dark btn-remove-from-cart" th:data-cart-number="${cart.cart_number}">삭제</button>
                                 </div>
-                                <small class="text-muted" style="font-size: 24px; position: relative; top: 16px;"
-                                       th:text="${recipe.recipe_price}"></small>
                             </div>
                         </div>
                     </div>
